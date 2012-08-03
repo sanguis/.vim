@@ -1,0 +1,1 @@
+csv-0.25.vmb: call delete('/home/knectar/.vim/ftplugin/csv.vim')|call delete('/home/knectar/.vim/doc/ft-csv.txt')|call delete('/home/knectar/.vim/syntax/csv.vim')|call delete('/home/knectar/.vim/ftdetect/csv.vim')|call delete('/home/knectar/.vim/plugin/csv.vim')
