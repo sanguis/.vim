@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/home/knectar/Sites/kuba-scrape.dev'
 let g:netrw_dirhist_2='/home/knectar/Sites/kubatana.dev/sites/all/modules/custom/kuba_lib'
 let g:netrw_dirhist_3='/home/knectar/Sites/loreal.dev/sites/all/modules/email'
+let g:netrw_dirhist_4='/home/knectar/Sites/loreal.dev/sites/all/modules/custom/analytics_l'
