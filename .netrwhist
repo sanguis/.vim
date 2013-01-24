@@ -1,11 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/knectar/Sites/kuba-scrape.dev'
-let g:netrw_dirhist_2='/home/knectar/Sites/kubatana.dev/sites/all/modules/custom/kuba_lib'
-let g:netrw_dirhist_3='/home/knectar/Sites/loreal.dev/sites/all/modules/email'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/knectar/Sites/citisoft.dev/sites/all/modules/citisoft'
+let g:netrw_dirhist_2='/home/knectar/Sites/maintaince-server.dev/sites/all/modules/example_task'
+let g:netrw_dirhist_3='/home/knectar/Sites/d7.dev/sites/all/modules/og_context_comment'
 let g:netrw_dirhist_4='/home/knectar/Sites/loreal.dev/sites/all/modules/custom/analytics_l'
-let g:netrw_dirhist_5='/home/knectar/Sites/kubatana.dev/sites/all/modules/custom/kuba_lib'
-let g:netrw_dirhist_6='/home/knectar/Sites/loreal.dev/sites/all/modules/views_bulk_operations/actions'
-let g:netrw_dirhist_7='/home/knectar/Sites/nsupport.dev/sites/all/modules/features'
-let g:netrw_dirhist_8='/home/knectar/Sites/kubatana.dev/sites/all/modules/custom/kuba_directory'
-let g:netrw_dirhist_9='/home/knectar/Sites/kubatana.dev/sites/all/modules/custom/kuba_lib'
+let g:netrw_dirhist_5='/home/knectar/Sites/kubatana.dev/sites/all/themes/kubatana'
