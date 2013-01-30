@@ -1,0 +1,3 @@
+[submodule "bundle/drupal-snippets"]
+	path = bundle/drupal-snippets
+	url = https://github.com/sanguis/drupal-snippets.git
