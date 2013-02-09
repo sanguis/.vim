@@ -1,8 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/home/knectar/Sites/citisoft.dev/sites/all/modules/citisoft'
 let g:netrw_dirhist_2='/home/knectar/Sites/maintaince-server.dev/sites/all/modules/example_task'
 let g:netrw_dirhist_3='/home/knectar/Sites/d7.dev/sites/all/modules/og_context_comment'
 let g:netrw_dirhist_4='/home/knectar/Sites/loreal.dev/sites/all/modules/custom/analytics_l'
 let g:netrw_dirhist_5='/home/knectar/Sites/kubatana.dev/sites/all/themes/kubatana'
 let g:netrw_dirhist_6='/home/josh/.config'
+let g:netrw_dirhist_7='/home/knectar/Sites/sysbio.dev/sites/all/themes/sysbio/css'
