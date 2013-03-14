@@ -1,3 +1,9 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git@github.com:scrooloose/nerdtree.git
+[submodule "bundle/drupal-snippets"]
+	path = bundle/drupal-snippets
+	url = git@github.com:sanguis/drupal-snippets.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = git@github.com:Valloric/YouCompleteMe.git
