@@ -1,17 +1,11 @@
 let g:netrw_dirhistmax  =10
-<<<<<<< HEAD
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/home/knectar/Sites/citisoft.dev/sites/all/modules/citisoft'
-let g:netrw_dirhist_2='/home/knectar/Sites/maintaince-server.dev/sites/all/modules/example_task'
-let g:netrw_dirhist_3='/home/knectar/Sites/d7.dev/sites/all/modules/og_context_comment'
-let g:netrw_dirhist_4='/home/knectar/Sites/loreal.dev/sites/all/modules/custom/analytics_l'
-let g:netrw_dirhist_5='/home/knectar/Sites/kubatana.dev/sites/all/themes/kubatana'
-let g:netrw_dirhist_6='/home/josh/.config'
-let g:netrw_dirhist_7='/home/knectar/Sites/sysbio.dev/sites/all/themes/sysbio/css'
-let g:netrw_dirhist_8='/home/josh/Sites/sysbio/public/sites/all/modules/sysbio/faculty_sysbio'
-=======
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/home/knectar/Sites/sysbio.dev/sites/all/modules/sysbio/slideshow_sysbio'
 let g:netrw_dirhist_2='/home/knectar/Sites/sysbio.dev/sites/all/modules/sysbio/blog_sysbio'
 let g:netrw_dirhist_3='/home/knectar/Sites/sysbio.dev/sites/all/modules/sysbio/courses_sysbio'
->>>>>>> 59aec7134aaec6e0ca1a4cd4744c82971d535c55
+let g:netrw_dirhist_4='/home/josh/.oh-my-zsh/plugins/rsync'
+let g:netrw_dirhist_5='/home/josh/Sites/kubatana.dev/sites/all/modules/custom/kubatana_content_types'
+let g:netrw_dirhist_6='/home/josh/.ssh'
+let g:netrw_dirhist_7='/home/josh/Sites/aier/public/sites/all/themes/aier/sass'
+let g:netrw_dirhist_8='/home/josh/src/vhostx'
+let g:netrw_dirhist_9='/home/josh/.oh-my-zsh'
