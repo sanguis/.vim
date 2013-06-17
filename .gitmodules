@@ -4,6 +4,7 @@
 [submodule "bundle/drupal-snippets"]
 	path = bundle/drupal-snippets
 	url = git@github.com:sanguis/drupal-snippets.git
+  branch = 'master'
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = git://github.com/msanders/snipmate.vim.git
