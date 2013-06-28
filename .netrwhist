@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/knectar/Sites/sysbio.dev/sites/all/modules/sysbio/slideshow_sysbio'
-let g:netrw_dirhist_2='/home/knectar/Sites/sysbio.dev/sites/all/modules/sysbio/blog_sysbio'
-let g:netrw_dirhist_3='/home/knectar/Sites/sysbio.dev/sites/all/modules/sysbio/courses_sysbio'
