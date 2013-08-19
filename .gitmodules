@@ -26,3 +26,6 @@
 [submodule "bundle/vim-snipmate"]
 	path = bundle/vim-snipmate
 	url = git://github.com/garbas/vim-snipmate.git
+[submodule "bundle/jshint"]
+	path = bundle/jshint
+	url = https://github.com/walm/jshint.vim.git
