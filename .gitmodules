@@ -38,3 +38,6 @@
 [submodule "bundle/tmux-complete"]
 	path = bundle/tmux-complete
 	url = git@github.com:wellle/tmux-complete.vim.git
+[submodule "bundle/delimitMate"]
+	path = bundle/delimitMate
+	url = git@github.com:Raimondi/delimitMate.git
