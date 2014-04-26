@@ -4,6 +4,7 @@
 [submodule "bundle/drupal-snippets"]
 	path = bundle/drupal-snippets
 	url = git@github.com:sanguis/drupal-snippets.git
+  branch = 'master'
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = git://github.com/msanders/snipmate.vim.git
@@ -25,3 +26,15 @@
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive.git
+[submodule "bundle/jshint"]
+	path = bundle/jshint
+	url = https://github.com/walm/jshint.vim.git
+[submodule "bundle/vim-json"]
+	path = bundle/vim-json
+	url = git@github.com:leshill/vim-json.git
+[submodule "bundle/tmux-complete"]
+	path = bundle/tmux-complete
+	url = git@github.com:wellle/tmux-complete.vim.git
+[submodule "bundle/delimitMate"]
+	path = bundle/delimitMate
+	url = git@github.com:Raimondi/delimitMate.git
