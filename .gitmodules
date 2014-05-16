@@ -44,3 +44,6 @@
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
 	url = git@github.com:honza/vim-snippets.git
+[submodule "bundle/ultisnips-chef"]
+	path = bundle/ultisnips-chef
+	url = git@github.com:sanguis/ultisnips-chef.git
