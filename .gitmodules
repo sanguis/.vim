@@ -47,3 +47,6 @@
 [submodule "bundle/ultisnips-chef"]
 	path = bundle/ultisnips-chef
 	url = git@github.com:sanguis/ultisnips-chef.git
+[submodule "bundle/vim-cucumber"]
+	path = bundle/vim-cucumber
+	url = git@github.com:tpope/vim-cucumber.git
