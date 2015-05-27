@@ -56,3 +56,6 @@
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
 	url = git@github.com:hallison/vim-markdown.git
+[submodule "bundle/vim-wordy"]
+	path = bundle/vim-wordy
+	url = git@github.com:reedes/vim-wordy.git
