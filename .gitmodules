@@ -59,3 +59,9 @@
 [submodule "bundle/vim-ansible-yaml"]
 	path = bundle/vim-ansible-yaml
 	url = https://github.com/chase/vim-ansible-yaml.git
+[submodule "bundle/codi.com"]
+	path = bundle/codi.com
+	url = https://github.com/metakirby5/codi.vim.git
+[submodule "bundle/aws-vim"]
+	path = bundle/aws-vim
+	url = https://github.com/m-kat/aws-vim
