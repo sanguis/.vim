@@ -62,3 +62,6 @@
 [submodule "bundle/aws-vim"]
 	path = bundle/aws-vim
 	url = https://github.com/m-kat/aws-vim
+[submodule "bundle/vim-json"]
+	path = bundle/vim-json
+	url = https://github.com/elzr/vim-json.git
