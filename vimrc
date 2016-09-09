@@ -10,7 +10,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-source 'pathogenrc.vim'
+source 'vundle.vim'
 call vundle#end() 
 
 set term=xterm-color
