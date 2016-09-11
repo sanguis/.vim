@@ -10,7 +10,27 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-source 'vundle.vim'
+
+Plugin 'sanguis/drupal-snippets'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'mhinz/vim-signify'
+Plugin 'majutsushi/tagbar'
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tpope/vim-five.git'
+Plugin 'walm/jshint.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'sanguis/ultisnips-chef'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'hallison/vim-markdown'
+Plugin 'reedes/vim-wordy'
+Plugin 'avakhov/vim-yaml'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'metakirby5/codi.vim'
+Plugin 'm-kat/aws-vim'
+Plugin 'elzr/vim-json'
 call vundle#end() 
 
 set term=xterm-color
