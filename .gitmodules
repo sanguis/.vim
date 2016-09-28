@@ -1,67 +1,64 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
-	url = git@github.com:scrooloose/nerdtree.git
+	url = https://github.com:scrooloose/nerdtree
 [submodule "bundle/drupal-snippets"]
 	path = bundle/drupal-snippets
-	url = git@github.com:sanguis/drupal-snippets.git
+	url = https://github.com:sanguis/drupal-snippets
   branch = 'master'
 [submodule "bundle/YouCompleteMe"]
 	path = bundle/YouCompleteMe
-	url = git://github.com/Valloric/YouCompleteMe.git
+	url = https://github.com/Valloric/YouCompleteMe
 [submodule "bundle/vim-signify"]
 	path = bundle/vim-signify
-	url = git@github.com:mhinz/vim-signify.git
+	url = https://github.com:mhinz/vim-signify
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
-	url = git://github.com/majutsushi/tagbar
+	url = https://github.com/majutsushi/tagbar
 [submodule "bundle/tlib_vim"]
 	path = bundle/tlib_vim
-	url = git://github.com/tomtom/tlib_vim.git
+	url = https://github.com/tomtom/tlib_vim
 [submodule "bundle/vim-addon-mw-utils"]
 	path = bundle/vim-addon-mw-utils
-	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
+	url = https://github.com/MarcWeber/vim-addon-mw-utils
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
-	url = git@github.com:tpope/vim-fugitive.git
+	url = https://github.com:tpope/vim-fugitive
 [submodule "bundle/jshint"]
 	path = bundle/jshint
-	url = https://github.com/walm/jshint.vim.git
-[submodule "bundle/delimitMate"]
-	path = bundle/delimitMate
-	url = git@github.com:Raimondi/delimitMate.git
+	url = https://github.com/walm/jshint.vim
 [submodule "bundle/ultisnips"]
 	path = bundle/ultisnips
-	url = git://github.com/SirVer/ultisnips.git
+	url = https://github.com/SirVer/ultisnips
 [submodule "vim-snippets"]
 	path = vim-snippets
-	url = https://github.com/honza/vim-snippets.git
+	url = https://github.com/honza/vim-snippets
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
-	url = git@github.com:honza/vim-snippets.git
+	url = https://github.com:honza/vim-snippets
 [submodule "bundle/ultisnips-chef"]
 	path = bundle/ultisnips-chef
-	url = git@github.com:sanguis/ultisnips-chef.git
+	url = https://github.com:sanguis/ultisnips-chef
 [submodule "bundle/vim-ruby"]
 	path = bundle/vim-ruby
-	url = git@github.com:vim-ruby/vim-ruby.git
+	url = https://github.com:vim-ruby/vim-ruby
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
-	url = git@github.com:hallison/vim-markdown.git
+	url = https://github.com:hallison/vim-markdown
 [submodule "bundle/vim-wordy"]
 	path = bundle/vim-wordy
-	url = git@github.com:reedes/vim-wordy.git
+	url = https://github.com:reedes/vim-wordy
 [submodule "bundle/vim-yaml"]
 	path = bundle/vim-yaml
 	url = https://github.com/avakhov/vim-yaml
 [submodule "bundle/vim-ansible-yaml"]
 	path = bundle/vim-ansible-yaml
-	url = https://github.com/chase/vim-ansible-yaml.git
+	url = https://github.com/chase/vim-ansible-yaml
 [submodule "bundle/codi.com"]
 	path = bundle/codi.com
-	url = https://github.com/metakirby5/codi.vim.git
+	url = https://github.com/metakirby5/codi.vim
 [submodule "bundle/aws-vim"]
 	path = bundle/aws-vim
 	url = https://github.com/m-kat/aws-vim
 [submodule "bundle/vim-json"]
 	path = bundle/vim-json
-	url = https://github.com/elzr/vim-json.git
+	url = https://github.com/elzr/vim-json
