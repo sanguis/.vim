@@ -17,7 +17,7 @@ Plugin 'mhinz/vim-signify'
 Plugin 'majutsushi/tagbar'
 Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tpope/vim-five.git'
+Plugin 'tpope/vim-fugitive'
 Plugin 'walm/jshint.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
@@ -31,8 +31,10 @@ Plugin 'chase/vim-ansible-yaml'
 Plugin 'metakirby5/codi.vim'
 Plugin 'm-kat/aws-vim'
 Plugin 'elzr/vim-json'
+Plugin 'hashivim/vim-terraform'
 call vundle#end() 
 
+filetype plugin indent on    " required"
 set term=xterm-color
 set smartcase " match 'word' case-insensitive and 'Word' case-sensitive
 set showmatch " shows matching parenthesis, bracket, or brace
