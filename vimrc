@@ -35,7 +35,7 @@ Plugin 'hashivim/vim-terraform'
 call vundle#end() 
 
 
-" Appearnce
+" Appearance
 set background=dark " adapt colors for background
 colorscheme desert
 
@@ -46,7 +46,7 @@ set number
 set showcmd " show commands while they're being typed
 set cursorline
 
-" Experince
+" User experience
 filetype plugin indent on    " required"
 set term=xterm-color
 set smartcase " match 'word' case-insensitive and 'Word' case-sensitive
