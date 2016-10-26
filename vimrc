@@ -12,7 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 
 Plugin 'sanguis/drupal-snippets'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/neocomplete'
 Plugin 'mhinz/vim-signify'
 Plugin 'majutsushi/tagbar'
 Plugin 'tomtom/tlib_vim'
@@ -34,23 +34,29 @@ Plugin 'elzr/vim-json'
 Plugin 'hashivim/vim-terraform'
 call vundle#end() 
 
+
+" Appearnce
+set background=dark " adapt colors for background
+colorscheme desert
+
+set wildmode=longest,list,full
+set wildmenu
+set nowrap
+set number
+set showcmd " show commands while they're being typed
+set cursorline
+
+" Experince
 filetype plugin indent on    " required"
 set term=xterm-color
 set smartcase " match 'word' case-insensitive and 'Word' case-sensitive
 set showmatch " shows matching parenthesis, bracket, or brace
-set showcmd " show commands while they're being typed
 set incsearch " searches as you type
 syntax on " syntax highlighing
-set background=dark " adapt colors for background
-:colorscheme desert
 set vb t_vb=
-set nowrap
 setlocal spell spelllang=en_us
 filetype plugin on " plugins are enabled
 set noswapfile
-set ruler
-set wildmode=longest,list,full
-set wildmenu
 :filetype indent on
 set expandtab
 set tabstop=2
@@ -63,21 +69,30 @@ set isk-=_ "adds underscores as a word break
 let g:AWSVimValidate = 1
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "./bundle/aws-vim/snips"] 
 
+" use TAB completion neocomplete
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" }}}
+
 " search for visualized text
 vnoremap // y/<C-R>"<CR>
 
-"snipmate remaping to work with youCompleteMe
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" neocomplete config
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
 "save file as root
 cmap w!! %!sudo tee > /dev/null %
 
 " js/ jquery development
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
-:let g:proj_flags="imstvcg"
+let g:proj_flags="imstvcg"
 
 
 nmap <F8> :TagbarToggle<CR>
