@@ -48,7 +48,6 @@ set cursorline
 
 " Experince
 filetype plugin indent on    " required"
-set term=xterm-color
 set smartcase " match 'word' case-insensitive and 'Word' case-sensitive
 set showmatch " shows matching parenthesis, bracket, or brace
 set incsearch " searches as you type
@@ -69,12 +68,12 @@ set isk-=_ "adds underscores as a word break
 let g:AWSVimValidate = 1
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "./bundle/aws-vim/snips"] 
 
+" neocomplete
+
 " use TAB completion neocomplete
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " }}}
 
-" search for visualized text
-vnoremap // y/<C-R>"<CR>
 
 " neocomplete config
 let g:acp_enableAtStartup = 0
@@ -85,6 +84,20 @@ let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 " let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" ULTISNIPS config
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+
+" misc key bindings
+
+" search for visualized text
+vnoremap // y/<C-R>"<CR>
 
 "save file as root
 cmap w!! %!sudo tee > /dev/null %
@@ -97,9 +110,6 @@ let g:proj_flags="imstvcg"
 
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :set filetype=ruby.eruby.chef<CR>
-
-"Powerline
-" set rtp+=/home/josh/.local/lib/python2.7/site-packages/powerline/bindings/vim
 
 " Drupal Development.
 if has("autocmd")
