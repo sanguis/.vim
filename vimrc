@@ -1,4 +1,31 @@
-call pathogen#infect() " turning on pathogin
+" Vundle plugins
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'mhinz/vim-signify'
+Plugin 'majutsushi/tagbar'
+Plugin 'tomtom/tlib_vim.git'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tpope/vim-fugitive'
+Plugin 'walm/jshint.vim.git'
+Plugin 'leshill/vim-json'
+Plugin 'Raimondi/delimitMate'
+Plugin 'SirVer/ultisnips'
+Plugin 'sanguis/ultisnips-chef'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'hallison/vim-markdown'
+Plugin 'reedes/vim-wordy'
+Plugin 'avakhov/vim-yaml'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'metakirby5/codi.vim'
+Plugin 'm-kat/aws-vim'
+
+call vundle#end()            " required
 set term=xterm-color
 set smartcase " match 'word' case-insensitive and 'Word' case-sensitive
 set showmatch " shows matching parenthesis, bracket, or brace
