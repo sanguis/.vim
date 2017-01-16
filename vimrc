@@ -1,5 +1,5 @@
 " Vundle plugins
-set rtp+=~/.vim/bundle/VundleVim/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
   " let Vundle manage Vundle, required
