@@ -13,17 +13,17 @@ call vundle#begin()
   Plugin 'walm/jshint.vim.git'
   Plugin 'leshill/vim-json'
   Plugin 'Raimondi/delimitMate'
-  Plugin 'SirVer/ultisnips'
-  Plugin 'sanguis/ultisnips-chef'
   Plugin 'vim-ruby/vim-ruby'
   Plugin 'hallison/vim-markdown'
   Plugin 'reedes/vim-wordy'
   Plugin 'avakhov/vim-yaml'
   Plugin 'chase/vim-ansible-yaml'
-  Plugin 'metakirby5/codi.vim'
+  Plugin 'Shougo/neocomplete.vim'
+  Plugin 'honza/vim-snippets'
   Plugin 'm-kat/aws-vim'
 
 call vundle#end()            " required
+
 set smartcase " match 'word' case-insensitive and 'Word' case-sensitive
 set showmatch " shows matching parenthesis, bracket, or brace
 set showcmd " show commands while they're being typed
@@ -49,17 +49,18 @@ set isk-=_ "adds underscores as a word break
 
 " vim-aws functions
 let g:AWSVimValidate = 1
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "./bundle/aws-vim/snips"] 
 
 " search for visualized text
 vnoremap // y/<C-R>"<CR>
 
-"snipmate remaping to work with youCompleteMe
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-"save file as root
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" force save if you forgot to open with sudo
 cmap w!! %!sudo tee > /dev/null %
 
 " js/ jquery development
