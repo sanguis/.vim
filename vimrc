@@ -40,6 +40,7 @@ set ruler
 set wildmode=longest,list,full
 set wildmenu
 :filetype indent on
+set number
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -47,11 +48,24 @@ set autoindent
 set smartindent
 set isk-=_ "adds underscores as a word break
 
-" vim-aws functions
-let g:AWSVimValidate = 1
-
+" generl key bindings
+nmap <F8> :TagbarToggle<CR>
+" force save if you forgot to open with sudo
+cmap w!! %!sudo tee > /dev/null %
 " search for visualized text
 vnoremap // y/<C-R>"<CR>
+nnoremap <F5> :buffers<CR>:buffer<Space>
+
+"Neocomplete settings
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>""
+
+" UltiSnips
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -60,20 +74,16 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-" force save if you forgot to open with sudo
-cmap w!! %!sudo tee > /dev/null %
+" Chef development
+nmap <F7> :set filetype=ruby.eruby.chef<CR>
+
+" Aws development vim-aws functions
+let g:AWSVimValidate = 1
 
 " js/ jquery development
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 :let g:proj_flags="imstvcg"
-
-
-nmap <F8> :TagbarToggle<CR>
-nmap <F7> :set filetype=ruby.eruby.chef<CR>
-
-"Powerline
-" set rtp+=/home/josh/.local/lib/python2.7/site-packages/powerline/bindings/vim
 
 " Drupal Development.
 if has("autocmd")
