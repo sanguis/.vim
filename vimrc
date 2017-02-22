@@ -5,8 +5,8 @@ call vundle#begin()
   " let Vundle manage Vundle, required
   Plugin 'VundleVim/Vundle.vim'
   Plugin 'scrooloose/nerdtree'
+  Plugin 'vim-syntastic/syntastic'
   Plugin 'mhinz/vim-signify'
-  Plugin 'majutsushi/tagbar'
   Plugin 'tomtom/tlib_vim'
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'tpope/vim-fugitive'
@@ -15,7 +15,7 @@ call vundle#begin()
   Plugin 'Raimondi/delimitMate'
   Plugin 'vim-ruby/vim-ruby'
   Plugin 'hallison/vim-markdown'
-  Plugin 'reedes/vim-wordy'
+  Plugin 'SirVer/ultisnips'
   Plugin 'avakhov/vim-yaml'
   Plugin 'chase/vim-ansible-yaml'
   Plugin 'Shougo/neocomplete.vim'
@@ -47,6 +47,7 @@ set shiftwidth=2
 set autoindent
 set smartindent
 set isk-=_ "adds underscores as a word break
+:let g:proj_flags="imstvcg"
 
 " generl key bindings
 nmap <F8> :TagbarToggle<CR>
@@ -83,7 +84,8 @@ let g:AWSVimValidate = 1
 " js/ jquery development
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
-:let g:proj_flags="imstvcg"
+" json dev
+au BufRead,BufNewFile *.json set filetype=json
 
 " Drupal Development.
 if has("autocmd")
