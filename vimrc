@@ -21,6 +21,8 @@ call vundle#begin()
   Plugin 'Shougo/neocomplete.vim'
   Plugin 'honza/vim-snippets'
   Plugin 'm-kat/aws-vim'
+  Plugin 'hashivim/vim-terraform'
+  Plugin 'juliosueiras/vim-terraform-completion'
 
 call vundle#end()            " required
 
