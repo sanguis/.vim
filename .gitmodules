@@ -53,3 +53,6 @@
 [submodule "bundle/vim-wordy"]
 	path = bundle/vim-wordy
 	url = git@github.com:reedes/vim-wordy.git
+[submodule "bundle/vim-terraform"]
+	path = bundle/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git
