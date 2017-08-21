@@ -56,14 +56,20 @@ set isk-=_ "adds underscores as a word break
 set autochdir
 :let g:proj_flags="imstvcg"
 
-" generl key bindings
+"general custom key bindings
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :NERDTreeToggle<CR>
 " force save if you forgot to open with sudo
 cmap w!! %!sudo tee > /dev/null %
 " search for visualized text
 vnoremap // y/<C-R>"<CR>
+" list all open buffers and allow b# input to switch
 nnoremap <F5> :buffers<CR>:buffer<Space>
+" ctrl space for paste in insert mode
+imap <C-Space> <C-R>* 
+nmap <C-Space> <C-R>* 
+" ctrl space for paste in copy mode
+vmap <C-Space> "+y
 
 "Neocomplete settings
 let g:acp_enableAtStartup = 0
