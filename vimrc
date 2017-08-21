@@ -23,36 +23,42 @@ call vundle#begin()
   Plugin 'm-kat/aws-vim'
   Plugin 'hashivim/vim-terraform'
   Plugin 'juliosueiras/vim-terraform-completion'
+  Plugin 'majutsushi/tagbar'
 
 call vundle#end()            " required
 
+" Appearace
+syntax on " syntax highlighing
+set background=dark " adapt colors for background
+:colorscheme desert
+set ruler
+set number
+set tabstop=2
+set shiftwidth=2
+
+" behavior
 set smartcase " match 'word' case-insensitive and 'Word' case-sensitive
 set showmatch " shows matching parenthesis, bracket, or brace
 set showcmd " show commands while they're being typed
 set incsearch " searches as you type
-syntax on " syntax highlighing
-set background=dark " adapt colors for background
-:colorscheme desert
 set vb t_vb=
 set nowrap
 setlocal spell spelllang=en_us
 filetype plugin on " plugins are enabled
 set noswapfile
-set ruler
 set wildmode=longest,list,full
 set wildmenu
 :filetype indent on
-set number
 set expandtab
-set tabstop=2
-set shiftwidth=2
 set autoindent
 set smartindent
 set isk-=_ "adds underscores as a word break
+set autochdir
 :let g:proj_flags="imstvcg"
 
 " generl key bindings
 nmap <F8> :TagbarToggle<CR>
+nmap <F9> :NERDTreeToggle<CR>
 " force save if you forgot to open with sudo
 cmap w!! %!sudo tee > /dev/null %
 " search for visualized text
@@ -76,6 +82,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+""""""" PER LANGUAGE SETTINGS
 
 " Chef development
 nmap <F7> :set filetype=ruby.eruby.chef<CR>
