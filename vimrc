@@ -24,6 +24,7 @@ call vundle#begin()
   Plugin 'hashivim/vim-terraform'
   Plugin 'juliosueiras/vim-terraform-completion'
   Plugin 'majutsushi/tagbar'
+  Plugin 'vadv/vim-chef'
 
 call vundle#end()            " required
 
