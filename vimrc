@@ -25,6 +25,7 @@ call vundle#begin()
   Plugin 'juliosueiras/vim-terraform-completion'
   Plugin 'majutsushi/tagbar'
   Plugin 'vadv/vim-chef'
+  Plugin 'tpope/vim-surround'
 
 call vundle#end()            " required
 
@@ -69,8 +70,15 @@ nnoremap <F5> :buffers<CR>:buffer<Space>
 " ctrl space for paste in insert mode
 imap <C-Space> <C-R>* 
 nmap <C-Space> <C-R>* 
+
 " ctrl space for paste in copy mode
 vmap <C-Space> "+y
+
+" fast comment
+function! FastComment(char)
+  let :'<,'>s/^/a:char/
+endfunction
+
 
 "Neocomplete settings
 let g:acp_enableAtStartup = 0
