@@ -26,6 +26,7 @@ call vundle#begin()
   Plugin 'majutsushi/tagbar'
   Plugin 'vadv/vim-chef'
   Plugin 'tpope/vim-surround'
+  Plugin 'chrisbra/csv.vim'
 
 call vundle#end()            " required
 
