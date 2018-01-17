@@ -27,6 +27,7 @@ call vundle#begin()
   Plugin 'vadv/vim-chef'
   Plugin 'tpope/vim-surround'
   Plugin 'chrisbra/csv.vim'
+  Plugin 'rickhowe/diffchar.vim'
 
 call vundle#end()            " required
 
