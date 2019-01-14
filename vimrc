@@ -27,6 +27,7 @@ call vundle#begin()
   Plugin 'ekalinin/Dockerfile.vim'
   Plugin 'fatih/vim-go'
   Plugin 'cespare/vim-toml'
+  Plugin 'kien/ctrlp.vim'
 
 call vundle#end()            " required
 Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -59,6 +60,10 @@ set isk-=_ "adds underscores as a word break
 if has('gui_running')
   set guifont=hack:h11
 endif
+
+" fuzy file finding
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " generl key bindings
 nmap <F8> :TagbarToggle<CR>
