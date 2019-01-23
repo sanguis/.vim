@@ -55,6 +55,7 @@ set autoindent
 set smartindent
 set isk-=_ "adds underscores as a word break
 :let g:proj_flags="imstvcg"
+set shell=/bin/bash " Ignore my crazy zsh stuff and use bash
 
 " Powerline fonts
 if has('gui_running')
@@ -72,6 +73,9 @@ cmap w!! %!sudo tee > /dev/null %
 " search for visualized text
 vnoremap // y/<C-R>"<CR>
 nnoremap <F5> :buffers<CR>:buffer<Space>
+
+"search in duckduckgo via firefox for visualized text.
+vnoremap /d y:silent !open -a Firefox https:\/\/www.duckduckgo.com\/?q=<C-R>"<CR>
 
 "Neocomplete settings
 let g:acp_enableAtStartup = 0
@@ -116,3 +120,12 @@ nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
 let g:syntastic_phpcs_conf=" --standard=DrupalCodingStandard --extensions=php,module,inc,install,test,profile,theme"
 let g:syntastic_auto_loc_list=1
 " let g:syntastic_yaml_checkers = ['yamllint']
+
+:function! TempSpell(time)
+:  echo "Spelling will be on for" a:time "seconds"
+:  set spell
+:  sleep 
+:  set nospell
+:endfunction
+
+nnoremap <f3> :call TempSpell(5)<CR>
