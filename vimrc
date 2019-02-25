@@ -28,6 +28,8 @@ call vundle#begin()
   Plugin 'fatih/vim-go'
   Plugin 'cespare/vim-toml'
   Plugin 'kien/ctrlp.vim'
+  Plugin 'junegunn/fzf.vim'
+  Plugin 'w0rp/ale'
 
 call vundle#end()            " required
 Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
