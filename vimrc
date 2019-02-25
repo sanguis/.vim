@@ -4,32 +4,46 @@ call vundle#begin()
 
   " let Vundle manage Vundle, required
   Plugin 'VundleVim/Vundle.vim'
-  Plugin 'vim-scripts/l9'
-  Plugin 'vim-scripts/FuzzyFinder'
-  Plugin 'scrooloose/nerdtree'
-  Plugin 'vim-syntastic/syntastic'
-  Plugin 'mhinz/vim-signify'
-  Plugin 'tomtom/tlib_vim'
-  Plugin 'MarcWeber/vim-addon-mw-utils'
+
+  " NeoVim Back Porters
+  Plugin 'roxma/vim-hug-neovim-rpc'
+  Plugin 'roxma/nvim-yarp'
+
+  " Development Utilities
   Plugin 'tpope/vim-fugitive'
-  Plugin 'walm/jshint.vim.git'
-  Plugin 'leshill/vim-json'
+  Plugin 'vim-syntastic/syntastic'
+  Plugin 'w0rp/ale'
+
+  " Completion and snippets
   Plugin 'Raimondi/delimitMate'
+  Plugin 'SirVer/ultisnips'
+  Plugin 'Shougo/deoplete.nvim'
+  Plugin 'honza/vim-snippets'
+  Plugin 'juliosueiras/vim-terraform-completion'
+  Plugin 'm-kat/aws-vim'
+  Plugin 'leshill/vim-json'
+
+  " Language Syntax help
   Plugin 'vim-ruby/vim-ruby'
   Plugin 'hallison/vim-markdown'
-  Plugin 'SirVer/ultisnips'
-  Plugin 'avakhov/vim-yaml'
-  Plugin 'Shougo/neocomplete.vim'
-  Plugin 'honza/vim-snippets'
-  Plugin 'm-kat/aws-vim'
   Plugin 'hashivim/vim-terraform'
-  Plugin 'juliosueiras/vim-terraform-completion'
   Plugin 'ekalinin/Dockerfile.vim'
   Plugin 'fatih/vim-go'
   Plugin 'cespare/vim-toml'
+  Plugin 'pearofducks/ansible-vim'
+  Plugin 'avakhov/vim-yaml'
+
+  " UX help
+  Plugin 'vim-scripts/FuzzyFinder'
+  Plugin 'scrooloose/nerdtree'
   Plugin 'kien/ctrlp.vim'
   Plugin 'junegunn/fzf.vim'
-  Plugin 'w0rp/ale'
+
+  " Unsorted plugins
+  Plugin 'vim-scripts/l9'
+  Plugin 'mhinz/vim-signify'
+  Plugin 'tomtom/tlib_vim'
+  Plugin 'MarcWeber/vim-addon-mw-utils'
 
 call vundle#end()            " required
 Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -44,7 +58,7 @@ set vb t_vb=
 set nowrap
 setlocal spell spelllang=en_us
 filetype plugin on " plugins are enabled
-set noswapfile
+set noswapfile"
 set ruler
 set wildmode=longest,list,full
 set wildmenu
@@ -79,17 +93,27 @@ nnoremap <F5> :buffers<CR>:buffer<Space>
 "search in duckduckgo via firefox for visualized text.
 vnoremap /d y:silent !open -a Firefox https:\/\/www.duckduckgo.com\/?q=<C-R>"<CR>
 
-"Neocomplete settings
+" Ale Settings
+" fix files on save
+let g:ale_fix_on_save = 1
+
+" lint after 1000ms after changes are made both on insert mode and normal mode
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_lint_delay = 1000
+
+" use nice symbols for errors and warnings
+let g:ale_sign_error = '✗\ '
+let g:ale_sign_warning = '⚠\ '
+
+" fixer configurations
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
+
+"
 let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>""
 
-" UltiSnips
-
+let g:deoplete#enable_at_startup = 1
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
@@ -109,6 +133,9 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 " json dev
 au BufRead,BufNewFile *.json set filetype=json
 
+" Ansible Development
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+
 " Drupal Development.
 if has("autocmd")
   " Drupal *.module and *.install files.
@@ -126,7 +153,7 @@ let g:syntastic_auto_loc_list=1
 :function! TempSpell(time)
 :  echo "Spelling will be on for" a:time "seconds"
 :  set spell
-:  sleep 
+:  sleep
 :  set nospell
 :endfunction
 
