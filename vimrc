@@ -21,7 +21,6 @@ call vundle#begin()
   Plugin 'honza/vim-snippets'
   Plugin 'juliosueiras/vim-terraform-completion'
   Plugin 'm-kat/aws-vim'
-  Plugin 'leshill/vim-json'
 
   " Language Syntax help
   Plugin 'vim-ruby/vim-ruby'
@@ -32,6 +31,7 @@ call vundle#begin()
   Plugin 'cespare/vim-toml'
   Plugin 'pearofducks/ansible-vim'
   Plugin 'avakhov/vim-yaml'
+  Plugin 'leshill/vim-json'
 
   " UX help
   Plugin 'vim-scripts/FuzzyFinder'
@@ -82,8 +82,8 @@ endif
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-" generl key bindings
-nmap <F8> :TagbarToggle<CR>
+" general key bindings
+nnoremap nt :NERDTreeToggle<CR>
 " force save if you forgot to open with sudo
 cmap w!! %!sudo tee > /dev/null %
 " search for visualized text
@@ -93,7 +93,7 @@ nnoremap <F5> :buffers<CR>:buffer<Space>
 "search in duckduckgo via firefox for visualized text.
 vnoremap /d y:silent !open -a Firefox https:\/\/www.duckduckgo.com\/?q=<C-R>"<CR>
 
-" Ale Settings
+" Ale Linting Settings
 " fix files on save
 let g:ale_fix_on_save = 1
 
@@ -114,6 +114,7 @@ let g:ale_fixers = {
 let g:acp_enableAtStartup = 0
 
 let g:deoplete#enable_at_startup = 1
+
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
