@@ -9,8 +9,11 @@ call vundle#begin()
   Plugin 'roxma/vim-hug-neovim-rpc'
   Plugin 'roxma/nvim-yarp'
 
-  " Development Utilities
+  " Source control Utilities
   Plugin 'tpope/vim-fugitive'
+  Plugin 'mhinz/vim-signify'
+
+  " Syntax and Linting
   " Plugin 'vim-syntastic/syntastic' trying out ale solo for a bit
   Plugin 'w0rp/ale'
 
@@ -18,6 +21,7 @@ call vundle#begin()
   Plugin 'Raimondi/delimitMate'
   Plugin 'SirVer/ultisnips'
   Plugin 'Shougo/deoplete.nvim'
+  Plugin 'Shougo/neosnippet.vim'
   Plugin 'honza/vim-snippets'
   Plugin 'juliosueiras/vim-terraform-completion'
   Plugin 'm-kat/aws-vim'
@@ -41,7 +45,6 @@ call vundle#begin()
 
   " Unsorted plugins
   Plugin 'vim-scripts/l9'
-  Plugin 'mhinz/vim-signify'
   Plugin 'tomtom/tlib_vim'
   Plugin 'MarcWeber/vim-addon-mw-utils'
 
@@ -94,7 +97,7 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
-" fuzy file finding
+" fuzzy file finding
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
@@ -130,6 +133,9 @@ let g:ale_fixers = {
 let g:acp_enableAtStartup = 0
 
 let g:deoplete#enable_at_startup = 1
+imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+inoremap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
