@@ -11,7 +11,7 @@ call vundle#begin()
 
   " Development Utilities
   Plugin 'tpope/vim-fugitive'
-  Plugin 'vim-syntastic/syntastic'
+  " Plugin 'vim-syntastic/syntastic' trying out ale solo for a bit
   Plugin 'w0rp/ale'
 
   " Completion and snippets
@@ -46,7 +46,16 @@ call vundle#begin()
   Plugin 'MarcWeber/vim-addon-mw-utils'
 
 call vundle#end()            " required
+
+" set powerline
 Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+" Powerline fonts
+if has('gui_running')
+  set guifont=hack:h11
+endif
+
+" general settings
 set smartcase " match 'word' case-insensitive and 'Word' case-sensitive
 set showmatch " shows matching parenthesis, bracket, or brace
 set showcmd " show commands while they're being typed
@@ -72,11 +81,18 @@ set smartindent
 set isk-=_ "adds underscores as a word break
 :let g:proj_flags="imstvcg"
 set shell=/bin/bash " Ignore my crazy zsh stuff and use bash
+set autochdir " automatically change to the working dir of the file in the buffer"
 
-" Powerline fonts
-if has('gui_running')
-  set guifont=hack:h11
-endif
+" unmap the arrows
+" Cycle through the history using C-n and C-p (Ctrl+n and Ctrl+p, respectively).
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
 
 " fuzy file finding
 let g:ctrlp_map = '<c-p>'
