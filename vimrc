@@ -1,6 +1,6 @@
 " Vundle plugins
 set nocompatible              " be iMproved, required
-filetype off      
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -16,15 +16,15 @@ call vundle#begin()
   Plugin 'mhinz/vim-signify'
 
   " Syntax and Linting
- " Plugin 'vim-syntastic/syntastic' "trying out ale solo for a bit
+  " Plugin 'vim-syntastic/syntastic' "trying out ale solo for a bit
   Plugin 'w0rp/ale'
 
   " Completion and snippets
   Plugin 'Raimondi/delimitMate'
   Plugin 'SirVer/ultisnips'
   Plugin 'Shougo/deoplete.nvim'
-  Plugin 'Shougo/neosnippet.vim'
-  Plugin 'Shougo/neosnippet-snippets'
+  " Plugin 'Shougo/neosnippet.vim'
+  " Plugin 'Shougo/neosnippet-snippets'
   Plugin 'honza/vim-snippets'
   Plugin 'juliosueiras/vim-terraform-completion'
   Plugin 'm-kat/aws-vim'
@@ -46,11 +46,15 @@ call vundle#begin()
   Plugin 'scrooloose/nerdtree'
   Plugin 'kien/ctrlp.vim'
   Plugin 'junegunn/fzf.vim'
+  Plugin 'Yggdroot/indentLine'
 
   " Unsorted plugins
   Plugin 'vim-scripts/l9'
   Plugin 'tomtom/tlib_vim'
   Plugin 'MarcWeber/vim-addon-mw-utils'
+
+  " Utilites
+  Plugin 'CrispyDrone/vim-tasks'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -118,32 +122,33 @@ nnoremap <F5> :buffers<CR>:buffer<Space>
 "search in duckduckgo via firefox for visualized text.
 vnoremap /d y:silent !open -a Firefox https:\/\/www.duckduckgo.com\/?q=<C-R>"<CR>
 
+" Add comment out with #
+" vnoremap # :'<,'>s/^/#/<CR>
 " Ale Linting Settings
 " fix files on save
-" let g:ale_fix_on_save = 1
-"
-" " lint after 1000ms after changes are made both on insert mode and normal mode
-" let g:ale_lint_on_text_changed = 'always'
-" let g:ale_lint_delay = 1000
-"
-" " use nice symbols for errors and warnings
-" let g:ale_sign_error = '✗\ '
-" let g:ale_sign_warning = '⚠\ '
-"
-" " fixer configurations
-" let g:ale_fixers = {
-" \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-" \}
+let g:ale_fix_on_save = 1
 
-"
+" lint after 1000ms after changes are made both on insert mode and normal mode
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_lint_delay = 1000
+
+" use nice symbols for errors and warnings
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+
+" fixer configurations
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
+
 let g:acp_enableAtStartup = 0
 
 " auto Completion and snippets.
 let g:deoplete#enable_at_startup = 1
- "call deoplete#custom#set('ultisnips', 'matchers', ['matcher_fuzzy'])
-imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-inoremap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
+" call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
+" imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+" inoremap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
