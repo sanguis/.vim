@@ -69,13 +69,52 @@ endif
 
 " general setting
 "
+" Force to use underline for spell check results
+augroup SpellUnderline
+  autocmd!
+  autocmd ColorScheme *
+        \ highlight clear SpellBad
+  autocmd ColorScheme *
+        \ highlight SpellBad
+        \   cterm=Underline
+        \   ctermfg=NONE
+        \   ctermbg=NONE
+        \   term=Reverse
+        \   gui=Undercurl
+        \   guisp=Red
+  autocmd ColorScheme *
+        \ highlight SpellCap
+        \   cterm=Underline
+        \   ctermfg=NONE
+        \   ctermbg=NONE
+        \   term=Reverse
+        \   gui=Undercurl
+        \   guisp=Red
+  autocmd ColorScheme *
+        \ highlight SpellLocal
+        \   cterm=Underline
+        \   ctermfg=NONE
+        \   ctermbg=NONE
+        \   term=Reverse
+        \   gui=Undercurl
+        \   guisp=Red
+  autocmd ColorScheme *
+        \ highlight SpellRare
+        \   cterm=Underline
+        \   ctermfg=NONE
+        \   ctermbg=NONE
+        \   term=Reverse
+        \   gui=Undercurl
+        \   guisp=Red
+augroup END
+
+colorscheme desert
+set background dark
 set smartcase " match 'word' case-insensitive and 'Word' case-sensitive
 set showmatch " shows matching parenthesis, bracket, or brace
 set showcmd " show commands while they're being typed
 set incsearch " searches as you type
 syntax on " syntax highlighing
-set background=dark " adapt colors for background
-:colorscheme desert
 set vb t_vb=
 set nowrap
 setlocal spell spelllang=en_us
@@ -95,6 +134,7 @@ set isk-=_ "adds underscores as a word break
 :let g:proj_flags="imstvcg"
 set shell=/bin/bash " Ignore my crazy zsh stuff and use bash
 set autochdir " automatically change to the working dir of the file in the buffer"
+set diffopt+=vertical " prefer vertical orientation when using :diffsplit
 
 " unmap the arrows
 " Cycle through the history using C-n and C-p (Ctrl+n and Ctrl+p, respectively).
@@ -145,17 +185,21 @@ let g:acp_enableAtStartup = 0
 
 " auto Completion and snippets.
 let g:deoplete#enable_at_startup = 1
-" call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
+ call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
 " imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 " imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " inoremap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" base64 utills TO-1DO
+" vnoremap <leader>d64 c<c-r>=system('base64 --decode', @")<cr><esc>
+" vnoremap <leader>c64 c<c-r>=system('base64', @")<cr><esc>
 
 " Chef development
 nmap <F7> :set filetype=ruby.eruby.chef<CR>
@@ -174,6 +218,8 @@ au BufRead,BufNewFile *.json set filetype=json
 " Ansible Development
 au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 
+" todo list options
+autocmd Filetype tasks let maplocalleader="\<space>"
 " Drupal Development.
 if has("autocmd")
   " Drupal *.module and *.install files.
