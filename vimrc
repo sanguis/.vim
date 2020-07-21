@@ -1,3 +1,6 @@
+" USE
+" Requires pip module pynvim to be installed.
+"
 " Vundle plugins
 set nocompatible              " be iMproved, required
 filetype off
@@ -64,7 +67,7 @@ Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " Powerline fonts
 if has('gui_running')
-  set guifont=hack:h11
+"  set guifont=hack:h11
 endif
 
 " general setting
@@ -109,7 +112,7 @@ augroup SpellUnderline
 augroup END
 
 colorscheme desert
-set background dark
+" set background dark
 set smartcase " match 'word' case-insensitive and 'Word' case-sensitive
 set showmatch " shows matching parenthesis, bracket, or brace
 set showcmd " show commands while they're being typed
