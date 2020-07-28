@@ -43,12 +43,14 @@ call vundle#begin()
   Plugin 'pearofducks/ansible-vim'
   Plugin 'avakhov/vim-yaml'
   Plugin 'leshill/vim-json'
+  Plugin 'rodjek/vim-puppet'
 
   " UX help
   Plugin 'vim-scripts/FuzzyFinder'
   Plugin 'scrooloose/nerdtree'
   Plugin 'kien/ctrlp.vim'
   Plugin 'junegunn/fzf.vim'
+  Plugin 'majutsushi/tagbar'
   Plugin 'Yggdroot/indentLine'
 
   " Unsorted plugins
