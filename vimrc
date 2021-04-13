@@ -44,6 +44,7 @@ call vundle#begin()
   Plugin 'avakhov/vim-yaml'
   Plugin 'leshill/vim-json'
   Plugin 'rodjek/vim-puppet'
+  Plugin 'towolf/vim-helm'
 
   " UX help
   Plugin 'vim-scripts/FuzzyFinder'
@@ -69,7 +70,7 @@ Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " Powerline fonts
 if has('gui_running')
-"  set guifont=hack:h11
+  set guifont=hack:h11
 endif
 
 " general setting
@@ -139,7 +140,7 @@ set isk-=_ "adds underscores as a word break
 :let g:proj_flags="imstvcg"
 set shell=/bin/bash " Ignore my crazy zsh stuff and use bash
 set autochdir " automatically change to the working dir of the file in the buffer"
-set diffopt+=vertical " prefer vertical orientation when using :diffsplit
+" set diffopt+=vertical " prefer vertical orientation when using :diffsplit
 
 " unmap the arrows
 " Cycle through the history using C-n and C-p (Ctrl+n and Ctrl+p, respectively).
@@ -247,3 +248,9 @@ let g:syntastic_auto_loc_list=1
 :endfunction
 
 nnoremap <f3> :call TempSpell(5)<CR>
+
+" git commit settings
+au FileType gitcommit 1 | startinsert
+
+"Jenkinsfile auto sytach checking
+au BufNewFile,BufRead Jenkinsfile setf groovy
