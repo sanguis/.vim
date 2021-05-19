@@ -45,6 +45,7 @@ call vundle#begin()
   Plugin 'leshill/vim-json'
   Plugin 'rodjek/vim-puppet'
   Plugin 'towolf/vim-helm'
+  Plugin 'vim-scripts/groovy.vim'
 
   " UX help
   Plugin 'vim-scripts/FuzzyFinder'
