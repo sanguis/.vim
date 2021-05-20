@@ -46,6 +46,7 @@ call vundle#begin()
   Plugin 'rodjek/vim-puppet'
   Plugin 'towolf/vim-helm'
   Plugin 'vim-scripts/groovy.vim'
+  Plugin 'groovyindent'
 
   " UX help
   Plugin 'vim-scripts/FuzzyFinder'
