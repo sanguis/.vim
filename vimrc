@@ -20,7 +20,7 @@ call vundle#begin()
 
   " Syntax and Linting
   " Plugin 'vim-syntastic/syntastic' "trying out ale solo for a bit
-  Plugin 'w0rp/ale'
+  Plugin 'dense-analysis/ale'
 
   " Completion and snippets
   Plugin 'Raimondi/delimitMate'
@@ -42,6 +42,7 @@ call vundle#begin()
   Plugin 'cespare/vim-toml'
   Plugin 'pearofducks/ansible-vim'
   Plugin 'avakhov/vim-yaml'
+  i
   Plugin 'leshill/vim-json'
   Plugin 'rodjek/vim-puppet'
   Plugin 'towolf/vim-helm'
@@ -49,6 +50,7 @@ call vundle#begin()
   Plugin 'groovyindent-unix'
 
   " UX help
+  Plugin 'terryma/vim-multiple-cursors'
   Plugin 'vim-scripts/FuzzyFinder'
   Plugin 'scrooloose/nerdtree'
   Plugin 'kien/ctrlp.vim'
