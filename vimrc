@@ -32,6 +32,7 @@ call vundle#begin()
   Plugin 'juliosueiras/vim-terraform-completion'
   Plugin 'm-kat/aws-vim'
   Plugin 'wellle/tmux-complete.vim'
+  Plugin 'sanguis/jenkinsfile-snippets'
 
   " Language Syntax help
   Plugin 'vim-ruby/vim-ruby'
