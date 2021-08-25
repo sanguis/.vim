@@ -26,7 +26,6 @@ call vundle#begin()
   Plugin 'Raimondi/delimitMate'
   Plugin 'SirVer/ultisnips'
   Plugin 'Shougo/deoplete.nvim'
-  Plugin 'neoclide/coc-snippets'
   Plugin 'honza/vim-snippets'
   Plugin 'juliosueiras/vim-terraform-completion'
   Plugin 'm-kat/aws-vim'
@@ -71,9 +70,14 @@ filetype plugin indent on    " required
 " set powerline
 Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
-" Powerline fonts
+" GUI Settings
 if has('gui_running')
-  set guifont=hack:h11
+  se guifont=hack:h11
+  se guioptions-=m  "remove menu bar
+  se guioptions-=T  "remove toolbar
+  se guioptions-=r  "remove right-hand scroll bar
+  se guioptions-=L  "remove left-hand scroll bar
+
 endif
 
 " general setting
@@ -160,6 +164,8 @@ noremap   <Right>  <NOP>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+" Tagbar Toggleing
+nmap <F8> :TagbarToggle<CR>
 " general key bindings
 nnoremap nt :NERDTreeToggle<CR>
 " force save if you forgot to open with sudo
@@ -169,8 +175,10 @@ vnoremap // y/<C-R>"<CR>
 "List buffers and select one by number
 nnoremap <F5> :buffers<CR>:buffer<Space>
 
-"search in duckduckgo via firefox for visualized text.
-vnoremap /d y:silent !open -a Firefox https:\/\/www.duckduckgo.com\/?q=<C-R>"<CR>
+" Open visualized text in default browser as a url
+vnoremap /w y:silent !open <C-R>"<CR>"
+"search in duckduckgo via default browser for visualized text.
+vnoremap /d y:silent !open https:\/\/www.duckduckgo.com\/?q=<C-R>"<CR>
 
 " Add comment out with #
 " vnoremap # :'<,'>s/^/#/<CR>
