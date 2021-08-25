@@ -69,6 +69,8 @@ filetype plugin indent on    " required
 
 " set powerline
 Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+# hack to always show status line
+set laststatus=2
 
 " GUI Settings
 if has('gui_running')
