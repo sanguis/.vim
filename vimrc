@@ -258,6 +258,8 @@ au BufRead,BufNewFile *.json set filetype=json
 " Ansible Development
 au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 
+" Terraform development
+au BufRead,BufNewFile *.tf-vars set filetype=terraform
 " todo list options
 autocmd Filetype tasks let maplocalleader="\<space>"
 " Drupal Development.
