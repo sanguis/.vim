@@ -149,8 +149,9 @@ set isk-=_ "adds underscores as a word break
 :let g:proj_flags="imstvcg"
 set shell=/bin/bash " Ignore my crazy zsh stuff and use bash
 set autochdir " automatically change to the working dir of the file in the buffer"
-" set diffopt+=vertical " prefer vertical orientation when using :diffsplit
+set diffopt+=vertical " prefer vertical orientation when using :diffsplit
 
+nmap <F9> :source ~/.vim/vimrc<CR>
 " unmap the arrows
 " Cycle through the history using C-n and C-p (Ctrl+n and Ctrl+p, respectively).
 inoremap  <Up>     <NOP>
@@ -259,7 +260,11 @@ au BufRead,BufNewFile *.json set filetype=json
 au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 
 " Terraform development
-au BufRead,BufNewFile *.tf-vars set filetype=terraform
+augroup terraform
+  au BufRead,BufNewFile *.tf-vars set filetype=terraform
+  au BufReadCmd,FileWritePre FileType terraform TerraformFmt
+augroup END
+
 " todo list options
 autocmd Filetype tasks let maplocalleader="\<space>"
 " Drupal Development.
