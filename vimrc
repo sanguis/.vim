@@ -51,7 +51,6 @@ call vundle#begin()
   " UX help
   Plugin 'vim-scripts/FuzzyFinder'
   Plugin 'scrooloose/nerdtree'
-  Plugin 'kien/ctrlp.vim'
   Plugin 'junegunn/fzf.vim'
   Plugin 'majutsushi/tagbar'
   Plugin 'Yggdroot/indentLine'
@@ -136,8 +135,10 @@ setlocal spell spelllang=en_us
 filetype plugin on " plugins are enabled
 set noswapfile"
 set ruler
+set path=$PWD/**        " enable fuzzy finding in the vim command line
 set wildmode=longest,list,full
 set wildmenu
+set wildignore+=**/.git/**,**/__pycache__/**,**/venv/**,**/node_modules/**,**/dist/**,**/build/**,*.o,*.pyc,*.swp
 :filetype indent on
 set number
 set expandtab
@@ -162,10 +163,6 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
-
-" fuzzy file finding
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
 
 " Tagbar Toggleing
 nmap <F8> :TagbarToggle<CR>
