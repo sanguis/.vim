@@ -203,7 +203,14 @@ let g:acp_enableAtStartup = 0
 
 " auto Completion and snippets.
 let g:deoplete#enable_at_startup = 1
- call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
+call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
+" custom terraform snippets
+call deoplete#custom#option('omni_patterns', {
+\ 'complete_method': 'omnifunc',
+\ 'terraform': '[^ *\t"{=$]\w*',
+\})
+
+call deoplete#initialize()
 " imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 " imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " inoremap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
@@ -244,6 +251,8 @@ nmap <F7> :set filetype=ruby.eruby.chef<CR>
 
 " Aws development vim-aws functions
 let g:AWSVimValidate = 1
+au BufRead,BufNewFile ~/.aws/credentials set filetype=toml
+au BufRead,BufNewFile ~/.aws/config set filetype=toml
 
 " Markdown
 au BufRead,BufNewFile *.md set wrap
