@@ -47,6 +47,7 @@ call vundle#begin()
   Plugin 'towolf/vim-helm'
   Plugin 'vim-scripts/groovy.vim'
   Plugin 'groovyindent-unix'
+  Plugin 'rhysd/vim-grammarous'
 
   " UX help
   Plugin 'vim-scripts/FuzzyFinder'
@@ -250,8 +251,7 @@ au BufRead,BufNewFile ~/.aws/config set filetype=toml
 
 " Markdown
 augroup markdown
-  au BufRead,BufNewFile *.md set tw=80
-  au BufRead,BufNewFile *.md set wrap
+  au BufRead,BufNewFile *.md set tw=80 wrap linebreak filetype=markdown
 augroup END
 
 " js/ jquery development
