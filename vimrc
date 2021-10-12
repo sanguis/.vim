@@ -297,5 +297,7 @@ nnoremap <f3> :call TempSpell(5)<CR>
 " git commit settings
 au FileType gitcommit 1 | startinsert
 
-"Jenkinsfile auto sytach checking
+" Groovy settings
+
+"Jenkinsfile auto syntax checking as groovy
 au BufNewFile,BufRead Jenkinsfile setf groovy
