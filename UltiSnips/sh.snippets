@@ -1,0 +1,24 @@
+snippet fun_ops "function with option flags"
+${1:name}() {
+	_USAGE="Usage : $1  [options] [--] {2:inputs}
+			${3: what it does}
+			Options:
+			-h|help       Display this message
+			${4:flag documentation}
+	"
+
+	while getopts ":${5: flags}" opt
+	do
+		case $opt in
+
+		h|help     )  echo $_USAGE; return 0   ;;
+
+		* ) echo -e "\033[31;1m[ERROR]\033[0m Option does not exist : $OPTARG\n"
+				echo ${usage}; return 1   ;;
+
+		esac    # --- end of case ---
+	done
+	shift $(($OPTIND-1))
+	${6:function}
+}
+endsnippet

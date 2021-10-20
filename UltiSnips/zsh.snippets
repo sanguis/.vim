@@ -1,4 +1,9 @@
 extends shell
+
+snippet bang_zsh "#!/bin/zsh"
+\#!/bin/zsh
+endsnippet
+
 snippet echd "debug statement"
 [[ ${DEBUG} ]] && echo -e "\\033[34;1m[DEBUG]\\033[0m ${1:statement}"
 endsnippet
@@ -11,6 +16,121 @@ snippet eche "echo error"
 echo -e "\\033[31;1m[ERROR]\\033[0m ${1:statement}"
 endsnippet
 
-snippet terinary "zsh terinary return" i
-[[ ${1:condtion} ]] ${2:else} && return
+snippet DEBUG  "[[ \$DEBUG && action ]]" b
+[[ $DEBUG ]] && ${1}
 endsnippet
+
+snippet terinary "zsh terinary return" i
+[[ ${1:condtion} ]] || ${2:else} && ${3:return}
+endsnippet
+
+
+snippet [[-a "true if file exists." iw
+[[ ${!} -a ${1:file} ]]
+endsnippet
+
+snippet [[-b "true if file exists and is a block special file." i
+[[ ${!} -b ${1:file} ]]
+endsnippet
+
+snippet [[-c "true if file exists and is a character special file." i
+[[ ${!} -c ${1:file} ]]
+endsnippet
+
+snippet [[-d "true if file exists and is a directory." i
+[[ ${!} -d ${1:file} ]]
+endsnippet
+
+snippet [[-e "true if file exists." i
+[[ ${!} -e ${1:file} ]]
+endsnippet
+
+snippet [[-f "true if file exists and is a regular file." i
+[[ ${!} -f ${1:file} ]]
+endsnippet
+
+snippet [[-g "true if file exists and has its setgid bit set." i
+[[ ${!} -g ${1:file} ]]
+endsnippet
+
+snippet [[-h "true if file exists and is a symbolic link." i
+[[ ${!} -h ${1:file} ]]
+endsnippet
+
+snippet [[-k "true if file exists and has its sticky bit set." i
+[[ ${!} -k ${1:file} ]]
+endsnippet
+
+snippet [[-n "true if length of string is non-zero." i
+[[ ${!} -n ${1:string} ]]
+endsnippet
+
+snippet [[-o "true if option named option is on. option may be a single character, in which case it is a single letter option name. (See Specifying Options.)" i
+[[ ${!} -o ${1:option} ]]
+endsnippet
+
+snippet [[-p "true if file exists and is a FIFO special file (named pipe)." i
+[[ ${!} -p ${1:file} ]]
+endsnippet
+
+snippet [[-r "true if file exists and is readable by current process." i
+[[ ${!} -r ${1:file} ]]
+endsnippet
+
+snippet [[-s "true if file exists and has size greater than zero." i
+[[ ${!} -s ${1:file} ]]
+endsnippet
+
+snippet [[-t "true if file descriptor number fd is open and associated with a terminal device. (note: fd is not optional)" i
+[[ ${!} -t ${1:fd} ]]
+endsnippet
+
+snippet [[-u "true if file exists and has its setuid bit set." i
+[[ ${!} -u ${1:file} ]]
+endsnippet
+
+snippet [[-v "true if shell variable varname is set." i
+[[ ${!} -v ${1:varname} ]]
+endsnippet
+
+snippet [[-w "true if file exists and is writable by current process." i
+[[ ${!} -w ${1:file} ]]
+endsnippet
+
+snippet [[-x "true if file exists and is executable by current process. If file exists and is a directory, then the current process has permission to search in the directory." i
+[[ ${!} -x ${1:file} ]]
+endsnippet
+
+snippet [[-z "true if length of string is zero." i
+[[ ${!} -z ${1:string} ]]
+endsnippet
+
+snippet [[-L "true if file exists and is a symbolic link." i
+[[ ${!} -L ${1:file} ]]
+endsnippet
+
+snippet [[-O "true if file exists and is owned by the effective user ID of this process." i
+[[ ${!} -O ${1:file} ]]
+endsnippet
+
+snippet [[-G "true if file exists and its group matches the effective group ID of this process." i
+[[ ${!} -G ${1:file} ]]
+endsnippet
+
+snippet [[-S "true if file exists and is a socket." i
+[[ ${!} -S ${1:file} ]]
+endsnippet
+
+snippet [[-N "true if file exists and its access time is not newer than its modification time." i
+[[ ${!} -N ${1:file} ]]
+endsnippet
+
+#file1 -nt file2
+#
+#    true if file1 exists and is newer than file2.
+#file1 -ot file2
+#
+#    true if file1 exists and is older than file2.
+#file1 -ef file2
+#
+#    true if file1 and file2 exist and refer to the same file.

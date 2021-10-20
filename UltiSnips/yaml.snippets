@@ -1,0 +1,41 @@
+snippet flux-release "namespace git repo and flux release object templates"
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    name: ${1:name}
+  name: $1
+
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: $1
+  namespace: ${2:flux-system}
+spec:
+  interval: 1m0s
+  ref:
+    branch: ${3:release}
+  secretRef:
+    name: ${4:flux-system}
+  url: ssh://${5:repo}
+
+---
+https://fluxcd.io/docs/components/helm/helmreleases/
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: $1
+  namespace: $1
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: ./
+      sourceRef:
+        kind: GitRepository
+        name: $1
+        namespace: flux-system
+      interval: 1m
+endsnippet
