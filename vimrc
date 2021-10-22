@@ -44,7 +44,7 @@ call vundle#begin()
   Plugin 'pedrohdz/vim-yaml-folds'
   Plugin 'leshill/vim-json'
   Plugin 'rodjek/vim-puppet'
-  Plugin 'towolf/vim-helm'
+  Plugin 'sanguis/vim-helm'
   Plugin 'vim-scripts/groovy.vim'
   Plugin 'groovyindent-unix'
   Plugin 'rhysd/vim-grammarous'
