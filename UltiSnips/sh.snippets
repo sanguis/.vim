@@ -1,24 +1,42 @@
-snippet fun_ops "function with option flags"
+global !p
+def opts_case(t):
+	for o in opts:
+		if o == "h":
+			return
+		return "			-" + o + "|${VISUAL}       ${VISUAL}"
+def opts_help(t):
+	for o in opts:
+		if o == "h":
+			return
+		return "			-" + o + "|${VISUAL}       ${VISUAL}		;;"
+
+endglobal
+
+snippet fun_ops "function with option flags" i
 ${1:name}() {
-	_USAGE="Usage : $1  [options] [--] {2:inputs}
-			${3: what it does}
+	_USAGE="Usage : $1  [-$3] [--] {2:inputs}
+			${2: what it does}
 			Options:
 			-h|help       Display this message
-			${4:flag documentation}
+		`$4 !p snip.rv=opts_help($3)`
 	"
 
-	while getopts ":${5: flags}" opt
+	while getopts ":${3: flags}" opt
 	do
 		case $opt in
 
 		h|help     )  echo $_USAGE; return 0   ;;
-
+		`$5 !p snip.rv=opts_case($3)`
 		* ) echo -e "\033[31;1m[ERROR]\033[0m Option does not exist : $OPTARG\n"
-				echo ${usage}; return 1   ;;
+				echo $_USAGE; return 1   ;;
 
 		esac    # --- end of case ---
 	done
 	shift $(($OPTIND-1))
 	${6:function}
-}
+}$0
+endsnippet
+
+snippet "\w\|(\w+)?" "GetOpss option" ir
+`!p snip.rv = match.group(0)`$1 		) $2 		;;$0
 endsnippet

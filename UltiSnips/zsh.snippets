@@ -1,7 +1,7 @@
 extends shell
 
 snippet bang_zsh "#!/bin/zsh"
-\#!/bin/zsh
+#!/bin/zsh
 endsnippet
 
 snippet echd "debug statement"
@@ -20,7 +20,7 @@ snippet DEBUG  "[[ \$DEBUG && action ]]" b
 [[ $DEBUG ]] && ${1}
 endsnippet
 
-snippet terinary "zsh terinary return" i
+snippet "terinary" "zsh terinary return" i
 [[ ${1:condtion} ]] || ${2:else} && ${3:return}
 endsnippet
 
