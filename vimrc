@@ -269,6 +269,11 @@ augroup terraform
   au BufReadCmd,FileWritePre FileType terraform TerraformFmt
 augroup END
 
+augroup zsh
+  autocmd!
+  autocmd BufRead,BufNewFile .zsh set filetype=sh.zsh
+augroup END
+
 " todo list options
 autocmd Filetype tasks let maplocalleader="\<space>"
 " Drupal Development.
