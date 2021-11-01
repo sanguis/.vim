@@ -30,9 +30,11 @@ call vundle#begin()
   Plugin 'juliosueiras/vim-terraform-completion'
   Plugin 'm-kat/aws-vim'
   Plugin 'wellle/tmux-complete.vim'
-  Plugin 'sanguis/jenkinsfile-snippets'
-
+  Plugin 'reconquest/vim-pythonx'
+  Plugin 'neoclide/coc-snippets'
+  "
   " Language Syntax help
+  Plugin 'sanguis/jenkinsfile-snippets'
   Plugin 'vim-ruby/vim-ruby'
   Plugin 'hallison/vim-markdown'
   Plugin 'hashivim/vim-terraform'
@@ -211,11 +213,11 @@ call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
 " inoremap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
 
 " let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsEditSplit='vertical'
 
 " coc- snippets settings
 " Use <C-l> for trigger snippet expand.
