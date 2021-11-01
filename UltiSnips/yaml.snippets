@@ -39,3 +39,10 @@ spec:
         namespace: flux-system
       interval: 1m
 endsnippet
+
+snippet "(- )?repo:?" "pre-commit repo" ir
+- repo: ${1:repo address}
+		rev: ${2:rev}
+		hooks:
+			- id: ${3:id}
+endsnippet

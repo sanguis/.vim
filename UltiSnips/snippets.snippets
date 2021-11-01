@@ -1,1 +1,23 @@
+extends snippets
+global !p
 
+opts = {
+	"b": "Beginning of line",
+	"i": "In-word expansion",
+	"w": "Word boundary",
+	"r": "Regular expression",
+	"t": "Do not expand tabs",
+	"e": "Custom context snippet"
+}
+complete(t, opts):
+	if t:
+		opts = [ m[len(t):] for m in opts if m.startswith(t) ]
+	if len(opts) == 1:
+		return opts[0]
+	return "(" + '|'.join(opts) + ')'
+endglobal
+
+snippet "snip" "ultisnips snippet" b
+snippet "$(1:name/pateren)" "${2:description}" `!p snip.rv=complete(t[1], opts)`
+${3:VISUAL}
+endsnippet
