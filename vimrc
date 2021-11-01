@@ -1,82 +1,71 @@
 " USE
 " Requires pip module pynvim to be installed.
 "
-" Vundle plugins
-set nocompatible              " be iMproved, required
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-  " let Vundle manage Vundle, required
-  Plugin 'VundleVim/Vundle.vim'
-
+call plug#begin('~/.vim/plugged')
   " NeoVim Back Porters
-  Plugin 'roxma/vim-hug-neovim-rpc'
-  Plugin 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'roxma/nvim-yarp'
 
   " Source control Utilities
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'mhinz/vim-signify'
+  Plug 'tpope/vim-fugitive'
+  Plug 'mhinz/vim-signify'
 
   " Syntax and Linting
-  " Plugin 'vim-syntastic/syntastic' "trying out ale solo for a bit
-  Plugin 'w0rp/ale'
+  " Plug 'vim-syntastic/syntastic' "trying out ale solo for a bit
+  Plug 'w0rp/ale'
 
   " Completion and snippets
-  Plugin 'Raimondi/delimitMate'
-  Plugin 'SirVer/ultisnips'
-  Plugin 'Shougo/deoplete.nvim'
-  Plugin 'honza/vim-snippets'
-  Plugin 'juliosueiras/vim-terraform-completion'
-  Plugin 'm-kat/aws-vim'
-  Plugin 'wellle/tmux-complete.vim'
-  Plugin 'reconquest/vim-pythonx'
-  Plugin 'neoclide/coc-snippets'
+  Plug 'Raimondi/delimitMate'
+  Plug 'SirVer/ultisnips'
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'honza/vim-snippets'
+  Plug 'juliosueiras/vim-terraform-completion'
+  Plug 'm-kat/aws-vim'
+  Plug 'wellle/tmux-complete.vim'
+  Plug 'reconquest/vim-pythonx'
   "
   " Language Syntax help
-  Plugin 'sanguis/jenkinsfile-snippets'
-  Plugin 'vim-ruby/vim-ruby'
-  Plugin 'hallison/vim-markdown'
-  Plugin 'hashivim/vim-terraform'
-  Plugin 'ekalinin/Dockerfile.vim'
-  Plugin 'fatih/vim-go'
-  Plugin 'cespare/vim-toml'
-  Plugin 'pearofducks/ansible-vim'
-  Plugin 'avakhov/vim-yaml'
-  Plugin 'pedrohdz/vim-yaml-folds'
-  Plugin 'leshill/vim-json'
-  Plugin 'rodjek/vim-puppet'
-  Plugin 'sanguis/vim-helm'
-  Plugin 'thecodesmith/vim-groovy'
-  Plugin 'groovyindent-unix'
-  Plugin 'rhysd/vim-grammarous'
+  Plug 'sanguis/jenkinsfile-snippets'
+  Plug 'vim-ruby/vim-ruby'
+  Plug 'hallison/vim-markdown'
+  Plug 'hashivim/vim-terraform'
+  Plug 'ekalinin/Dockerfile.vim'
+  Plug 'fatih/vim-go'
+  Plug 'cespare/vim-toml'
+  Plug 'pearofducks/ansible-vim'
+  Plug 'avakhov/vim-yaml'
+  Plug 'pedrohdz/vim-yaml-folds'
+  Plug 'leshill/vim-json'
+  Plug 'rodjek/vim-puppet'
+  Plug 'sanguis/vim-helm'
+  Plug 'thecodesmith/vim-groovy'
+  Plug 'vim-scripts/groovyindent-unix'
+  Plug 'rhysd/vim-grammarous'
 
   " UX help
-  Plugin 'vim-scripts/FuzzyFinder'
-  Plugin 'scrooloose/nerdtree'
-  Plugin 'junegunn/fzf.vim'
-  Plugin 'majutsushi/tagbar'
-  Plugin 'Yggdroot/indentLine'
+  Plug 'vim-scripts/FuzzyFinder'
+  Plug 'scrooloose/nerdtree'
+  Plug 'junegunn/fzf.vim'
+  Plug 'majutsushi/tagbar'
+  Plug 'Yggdroot/indentLine'
+  Plug 'bling/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
 
   " Unsorted plugins
-  Plugin 'vim-scripts/l9'
-  Plugin 'tomtom/tlib_vim'
-  Plugin 'MarcWeber/vim-addon-mw-utils'
+  Plug 'vim-scripts/l9'
+  Plug 'tomtom/tlib_vim'
+  Plug 'MarcWeber/vim-addon-mw-utils'
 
   " Utilites
-  Plugin 'CrispyDrone/vim-tasks'
+  Plug 'CrispyDrone/vim-tasks'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
 
-" set powerline
-Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-" hack to always show status line
-set laststatus=2
+" set laststatus=2
 
 " GUI Settings
 if has('gui_running')
-  se guifont=hack:h11
+  set guifont=Roboto\ Mono\ for\ Powerline:h11.
   se guioptions-=m  "remove menu bar
   se guioptions-=T  "remove toolbar
   se guioptions-=r  "remove right-hand scroll bar
@@ -219,24 +208,6 @@ call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit='vertical'
 
-" coc- snippets settings
-" Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
-
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-" Use <leader>x for convert visual selected code to snippet
-xmap <leader>x  <Plug>(coc-convert-snippet)
 
 "
 " base64 utills TO-1DO
@@ -308,3 +279,5 @@ au FileType gitcommit 1 | startinsert
 
 "Jenkinsfile auto syntax checking as groovy
 au BufNewFile,BufRead Jenkinsfile setf groovy
+set nocompatible              " be iMproved, required
+set nocompatible              " be iMproved, required
