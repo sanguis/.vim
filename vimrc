@@ -61,7 +61,9 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
-" set laststatus=2
+" Appearance
+let g:airline_theme='random'
+syntax on " syntax highlighing
 
 " GUI Settings
 if has('gui_running')
@@ -120,8 +122,7 @@ set smartcase " match 'word' case-insensitive and 'Word' case-sensitive
 set showmatch " shows matching parenthesis, bracket, or brace
 set showcmd " show commands while they're being typed
 set incsearch " searches as you type
-syntax on " syntax highlighing
-set vb t_vb=
+set visualbell t_vb=
 set nowrap
 setlocal spell spelllang=en_us
 filetype plugin on " plugins are enabled
@@ -138,8 +139,8 @@ set tabstop=2
 set shiftwidth=2
 set autoindent
 set smartindent
-set isk-=_ "adds underscores as a word break
-:let g:proj_flags="imstvcg"
+set iskeyword-=_ "adds underscores as a word break
+:let g:proj_flags='imstvcg'
 set shell=/bin/bash " Ignore my crazy zsh stuff and use bash
 set autochdir " automatically change to the working dir of the file in the buffer"
 set diffopt+=vertical " prefer vertical orientation when using :diffsplit
@@ -219,8 +220,10 @@ nmap <F7> :set filetype=ruby.eruby.chef<CR>
 
 " Aws development vim-aws functions
 let g:AWSVimValidate = 1
-au BufRead,BufNewFile ~/.aws/credentials set filetype=toml
-au BufRead,BufNewFile ~/.aws/config set filetype=toml
+augroup awsconfig
+  au BufRead,BufNewFile ~/.aws/credentials set filetype=toml
+  au BufRead,BufNewFile ~/.aws/config set filetype=toml
+augroup END
 
 " Markdown
 augroup markdown
@@ -228,7 +231,9 @@ augroup markdown
 augroup END
 
 " js/ jquery development
-au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+augroup js
+  au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+augroup END
 
 " json dev
 au BufRead,BufNewFile *.json set filetype=json
@@ -247,8 +252,6 @@ augroup zsh
   autocmd BufRead,BufNewFile .zsh set filetype=sh.zsh
 augroup END
 
-" todo list options
-autocmd Filetype tasks let maplocalleader="\<space>"
 " Drupal Development.
 if has("autocmd")
   " Drupal *.module and *.install files.
