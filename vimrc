@@ -57,6 +57,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-scripts/l9'
 
   " Utilites
+  Plug 'dhruvasagar/vim-open-url'
   Plug 'CrispyDrone/vim-tasks'
 
 call plug#end()
@@ -168,8 +169,6 @@ vnoremap // y/<C-R>"<CR>
 "List buffers and select one by number
 nnoremap <F5> :buffers<CR>:buffer<Space>
 
-" Open visualized text in default browser as a url
-vnoremap /w y:silent !open <C-R>"<CR>"
 "search in duckduckgo via default browser for visualized text.
 vnoremap /d y:silent !open https:\/\/www.duckduckgo.com\/?q=<C-R>"<CR>
 
