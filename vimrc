@@ -1,14 +1,13 @@
-" USE
 " Requires pip module pynvim to be installed.
 "
 call plug#begin('~/.vim/plugged')
   " NeoVim Back Porters
-  Plug 'roxma/vim-hug-neovim-rpc'
   Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 
   " Source control Utilities
-  Plug 'tpope/vim-fugitive'
   Plug 'mhinz/vim-signify'
+  Plug 'tpope/vim-fugitive'
 
   " Syntax and Linting
   " Plug 'vim-syntastic/syntastic' "trying out ale solo for a bit
@@ -16,45 +15,46 @@ call plug#begin('~/.vim/plugged')
 
   " Completion and snippets
   Plug 'Raimondi/delimitMate'
-  Plug 'SirVer/ultisnips'
   Plug 'Shougo/deoplete.nvim'
+  Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'juliosueiras/vim-terraform-completion'
   Plug 'm-kat/aws-vim'
-  Plug 'wellle/tmux-complete.vim'
   Plug 'reconquest/vim-pythonx'
-  "
+  Plug 'wellle/tmux-complete.vim'
+
   " Language Syntax help
-  Plug 'sanguis/jenkinsfile-snippets'
-  Plug 'vim-ruby/vim-ruby'
-  Plug 'hallison/vim-markdown'
-  Plug 'hashivim/vim-terraform'
+  Plug 'avakhov/vim-yaml'
+  Plug 'cespare/vim-toml'
   Plug 'ekalinin/Dockerfile.vim'
   Plug 'fatih/vim-go'
-  Plug 'cespare/vim-toml'
-  Plug 'pearofducks/ansible-vim'
-  Plug 'avakhov/vim-yaml'
-  Plug 'pedrohdz/vim-yaml-folds'
+  Plug 'hallison/vim-markdown'
+  Plug 'hashivim/vim-terraform'
   Plug 'leshill/vim-json'
+  Plug 'pearofducks/ansible-vim'
+  Plug 'pedrohdz/vim-yaml-folds'
+  Plug 'rhysd/vim-grammarous'
   Plug 'rodjek/vim-puppet'
+  Plug 'sanguis/jenkinsfile-snippets'
   Plug 'sanguis/vim-helm'
   Plug 'thecodesmith/vim-groovy'
+  Plug 'vim-ruby/vim-ruby'
   Plug 'vim-scripts/groovyindent-unix'
-  Plug 'rhysd/vim-grammarous'
+  Plug 'lvht/tagbar-markdown'
 
   " UX help
-  Plug 'vim-scripts/FuzzyFinder'
-  Plug 'scrooloose/nerdtree'
-  Plug 'junegunn/fzf.vim'
-  Plug 'majutsushi/tagbar'
   Plug 'Yggdroot/indentLine'
   Plug 'bling/vim-airline'
+  Plug 'junegunn/fzf.vim'
+  Plug 'majutsushi/tagbar'
+  Plug 'scrooloose/nerdtree'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'vim-scripts/FuzzyFinder'
 
   " Unsorted plugins
-  Plug 'vim-scripts/l9'
-  Plug 'tomtom/tlib_vim'
   Plug 'MarcWeber/vim-addon-mw-utils'
+  Plug 'tomtom/tlib_vim'
+  Plug 'vim-scripts/l9'
 
   " Utilites
   Plug 'CrispyDrone/vim-tasks'
@@ -239,7 +239,9 @@ augroup END
 au BufRead,BufNewFile *.json set filetype=json
 
 " Ansible Development
-au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+augroup Ansible
+  au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+augroup END
 
 " Terraform development
 augroup terraform
@@ -247,13 +249,20 @@ augroup terraform
   au BufReadCmd,FileWritePre FileType terraform TerraformFmt
 augroup END
 
+" shell editing
+let g:tagbar_type_sh = {
+      \' kinds': [
+    \ 'f:functions',
+    \ 'v:variables'
+        \]
+      \}
 augroup zsh
   autocmd!
   autocmd BufRead,BufNewFile .zsh set filetype=sh.zsh
 augroup END
 
 " Drupal Development.
-if has("autocmd")
+if has('autocmd')
   " Drupal *.module and *.install files.
   augroup module
     autocmd BufRead,BufNewFile *.module set filetype=php
@@ -266,6 +275,18 @@ let g:syntastic_phpcs_conf=" --standard=DrupalCodingStandard --extensions=php,mo
 let g:syntastic_auto_loc_list=1
 " let g:syntastic_yaml_checkers = ['yamllint']
 
+
+" git commit settings
+au FileType gitcommit 1 | startinsert
+
+" Groovy settings
+
+"Jenkinsfile auto syntax checking as groovy
+augroup Jenkinsfile
+  au BufNewFile,BufRead Jenkinsfile setf groovy
+augroup END
+
+" Custom functions
 :function! TempSpell(time)
 :  echo "Spelling will be on for" a:time "seconds"
 :  set spell
@@ -275,12 +296,18 @@ let g:syntastic_auto_loc_list=1
 
 nnoremap <f3> :call TempSpell(5)<CR>
 
-" git commit settings
-au FileType gitcommit 1 | startinsert
-
-" Groovy settings
-
-"Jenkinsfile auto syntax checking as groovy
-au BufNewFile,BufRead Jenkinsfile setf groovy
-set nocompatible              " be iMproved, required
-set nocompatible              " be iMproved, required
+let  maark_sanitize = {
+  \ 'example': '[maark|Maark]',
+  \ 'monkey_do': '[maestro|cps]',
+  \ 'us-region-23': '[us|eu]-[east|west]-\d\+',
+  \ '12345678909': '\d\{11\}'
+  \}
+function! Sanitize(patterns)
+  let column_num      = virtcol('.')
+  let target_pattern  = '\%' . column_num . 'v.'
+  " create a dictionalty of replacments key being repalcemnt with list of
+  " patterns to replace
+  for replacement in keys(a:patterns)
+    substitute(target_pattern, patterns(replacement), replacment, 'g')
+  endfor
+endfunction
