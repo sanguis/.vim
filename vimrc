@@ -26,11 +26,13 @@ call plug#begin('~/.vim/plugged')
   " Language Syntax help
   Plug 'avakhov/vim-yaml'
   Plug 'cespare/vim-toml'
+  Plug 'chr4/nginx.vim'
   Plug 'ekalinin/Dockerfile.vim'
   Plug 'fatih/vim-go'
   Plug 'hallison/vim-markdown'
   Plug 'hashivim/vim-terraform'
   Plug 'leshill/vim-json'
+  Plug 'lvht/tagbar-markdown'
   Plug 'pearofducks/ansible-vim'
   Plug 'pedrohdz/vim-yaml-folds'
   Plug 'rhysd/vim-grammarous'
@@ -40,7 +42,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'thecodesmith/vim-groovy'
   Plug 'vim-ruby/vim-ruby'
   Plug 'vim-scripts/groovyindent-unix'
-  Plug 'lvht/tagbar-markdown'
 
   " UX help
   Plug 'Yggdroot/indentLine'
@@ -63,6 +64,7 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Appearance
+let g:airline_powerline_fonts = 1
 let g:airline_theme='random'
 syntax on " syntax highlighing
 
@@ -76,7 +78,6 @@ if has('gui_running')
 
 endif
 
-" general setting
 "
 " Force to use underline for spell check results
 augroup SpellUnderline
@@ -118,6 +119,8 @@ augroup SpellUnderline
 augroup END
 
 colorscheme desert
+
+" general setting
 " set background dark
 set smartcase " match 'word' case-insensitive and 'Word' case-sensitive
 set showmatch " shows matching parenthesis, bracket, or brace
@@ -130,6 +133,7 @@ filetype plugin on " plugins are enabled
 set noswapfile"
 set ruler
 set path=$PWD/**        " enable fuzzy finding in the vim command line
+set runtimepath+=/usr/local/opt/fzf
 set wildmode=longest,list,full
 set wildmenu
 set wildignore+=**/.git/**,**/__pycache__/**,**/venv/**,**/node_modules/**,**/dist/**,**/build/**,*.o,*.pyc,*.swp
