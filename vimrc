@@ -65,7 +65,7 @@ call plug#end()
 
 " Appearance
 let g:airline_powerline_fonts = 1
-let g:airline_theme='random'
+let g:airline_theme='murmur'
 syntax on " syntax highlighing
 
 " GUI Settings
@@ -118,14 +118,14 @@ augroup SpellUnderline
         \   guisp=Red
 augroup END
 
-colorscheme desert
+colorscheme macvim
 
-" general setting
-" set background dark
+" Search settings
 set smartcase " match 'word' case-insensitive and 'Word' case-sensitive
 set showmatch " shows matching parenthesis, bracket, or brace
 set showcmd " show commands while they're being typed
 set incsearch " searches as you type
+" general settings
 set visualbell t_vb=
 set nowrap
 setlocal spell spelllang=en_us
@@ -274,7 +274,7 @@ if has('autocmd')
 endif
 
 nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
-let g:syntastic_phpcs_conf=" --standard=DrupalCodingStandard --extensions=php,module,inc,install,test,profile,theme"
+let g:syntastic_phpcs_conf=' --standard=DrupalCodingStandard --extensions=php,module,inc,install,test,profile,theme'
 let g:syntastic_auto_loc_list=1
 " let g:syntastic_yaml_checkers = ['yamllint']
 
