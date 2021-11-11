@@ -7,7 +7,7 @@ export VIMRC=$HOME/.sanguis_settings/vim/vimrc
 vimrc_edit() {
   vim $VIMRC
   git -C $HOME/.sanguis_settings/vim commit $VIMRC
-  vim +PlugInstall +PlugUpdate +qall
+  vim +PlugInstall +PlugUpdate +PlugClean +qall
 }
 
 vim_plug_update() {

@@ -79,7 +79,6 @@ if has('gui_running')
 endif
 
 " Spelling settings
-source spelling_autocorrections.vim
 "" Force to use underline for spell check results
 augroup SpellUnderline
   autocmd!
@@ -126,7 +125,9 @@ set smartcase " match 'word' case-insensitive and 'Word' case-sensitive
 set showmatch " shows matching parenthesis, bracket, or brace
 set showcmd " show commands while they're being typed
 set incsearch " searches as you type
-" general settings
+"
+" miscellaneous settings
+" TODO Split these setting up in to better sections where possible
 set visualbell t_vb=
 set nowrap
 filetype plugin on " plugins are enabled
@@ -150,6 +151,7 @@ set shell=/bin/bash " Ignore my crazy zsh stuff and use bash
 set autochdir " automatically change to the working dir of the file in the buffer"
 set diffopt+=vertical " prefer vertical orientation when using :diffsplit
 
+" hit F9 to reload the vimrc
 nmap <F9> :source ~/.vim/vimrc<CR>
 " unmap the arrows
 " Cycle through the history using C-n and C-p (Ctrl+n and Ctrl+p, respectively).
