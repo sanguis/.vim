@@ -78,8 +78,9 @@ if has('gui_running')
 
 endif
 
-"
-" Force to use underline for spell check results
+" Spelling settings
+source spelling_autocorrections.vim
+"" Force to use underline for spell check results
 augroup SpellUnderline
   autocmd!
   autocmd ColorScheme *
@@ -128,7 +129,6 @@ set incsearch " searches as you type
 " general settings
 set visualbell t_vb=
 set nowrap
-setlocal spell spelllang=en_us
 filetype plugin on " plugins are enabled
 set noswapfile"
 set ruler
