@@ -34,7 +34,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'hallison/vim-markdown'
   Plug 'hashivim/vim-terraform'
   Plug 'leshill/vim-json'
-  Plug 'luchermitte/vim-UT'
   Plug 'lvht/tagbar-markdown'
   Plug 'pearofducks/ansible-vim'
   Plug 'pedrohdz/vim-yaml-folds'
