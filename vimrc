@@ -21,6 +21,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'juliosueiras/vim-terraform-completion'
   Plug 'm-kat/aws-vim'
   Plug 'reconquest/vim-pythonx'
+  Plug 'thomasfaingnaert/vim-lsp-snippets'
+  Plug 'thomasfaingnaert/vim-lsp-ultisnips'
   Plug 'wellle/tmux-complete.vim'
 
   " Language Syntax help
@@ -32,6 +34,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'hallison/vim-markdown'
   Plug 'hashivim/vim-terraform'
   Plug 'leshill/vim-json'
+  Plug 'luchermitte/vim-UT'
   Plug 'lvht/tagbar-markdown'
   Plug 'pearofducks/ansible-vim'
   Plug 'pedrohdz/vim-yaml-folds'
@@ -118,7 +121,6 @@ augroup SpellUnderline
         \   guisp=Red
 augroup END
 
-colorscheme macvim
 
 " Search settings
 set smartcase " match 'word' case-insensitive and 'Word' case-sensitive
@@ -293,7 +295,7 @@ augroup END
 
 " Custom functions
 :function! TempSpell(time)
-:  echo "Spelling will be on for" a:time "seconds"
+:  echo 'Spelling will be on for' a:time 'seconds'
 :  set spell
 :  sleep
 :  set nospell
