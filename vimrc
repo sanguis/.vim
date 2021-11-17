@@ -202,11 +202,8 @@ let g:acp_enableAtStartup = 0
 
 " auto Completion and snippets.
 let g:deoplete#enable_at_startup = 1
-call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'])
+call deoplete#custom#source('ultisnips', 'ale', 'matchers', ['matcher_fuzzy'])
 
-" imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-" imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-" inoremap <expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
 
 " let g:UltiSnipsExpandTrigger="<tab>"
 " let g:UltiSnipsJumpForwardTrigger="<c-j>"
