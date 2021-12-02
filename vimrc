@@ -66,6 +66,7 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Appearance
+colorscheme evening
 let g:airline_powerline_fonts = 1
 let g:airline_theme='murmur'
 syntax on " syntax highlighing
@@ -201,6 +202,8 @@ let g:ale_fixers = {
 let g:acp_enableAtStartup = 0
 
 " auto Completion and snippets.
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w}]'
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#source('ultisnips', 'ale', 'matchers', ['matcher_fuzzy'])
 
