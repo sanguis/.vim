@@ -10,12 +10,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
 
   " Syntax and Linting
-  " Plug 'vim-syntastic/syntastic' "trying out ale solo for a bit
+  Plug 'vim-syntastic/syntastic'
   Plug 'w0rp/ale'
 
   " Completion and snippets
+  Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': './install.sh'}
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Raimondi/delimitMate'
-  Plug 'Shougo/deoplete.nvim'
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'juliosueiras/vim-terraform-completion'
@@ -70,6 +71,7 @@ colorscheme evening
 let g:airline_powerline_fonts = 1
 let g:airline_theme='murmur'
 syntax on " syntax highlighing
+set number
 
 " GUI Settings
 if has('gui_running')
@@ -141,7 +143,6 @@ set wildmode=longest,list,full
 set wildmenu
 set wildignore+=**/.git/**,**/__pycache__/**,**/venv/**,**/node_modules/**,**/dist/**,**/build/**,*.o,*.pyc,*.swp
 :filetype indent on
-set number
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -180,6 +181,13 @@ nnoremap <F5> :buffers<CR>:buffer<Space>
 "search in duckduckgo via default browser for visualized text.
 vnoremap /d y:silent !open https:\/\/www.duckduckgo.com\/?q=<C-R>"<CR>
 
+
+" #Syntastic
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 " Add comment out with #
 " vnoremap # :'<,'>s/^/#/<CR>
 " Ale Linting Settings
@@ -202,31 +210,34 @@ let g:ale_fixers = {
 let g:acp_enableAtStartup = 0
 
 " auto Completion and snippets.
+" (Optional)Remove Info(Preview) window
+set completeopt-=preview
+
+" (Optional)Hide Info(Preview) window after completions
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+let g:deoplete#enable_at_startup = 1
 let g:deoplete#omni_patterns = {}
 let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w}]'
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#source('ultisnips', 'ale', 'matchers', ['matcher_fuzzy'])
-
-
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+call deoplete#custom#source('ultisnips','LanguageClient', 'ale', 'matchers', ['matcher_fuzzy'])
+call deoplete#initialize()
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit='vertical'
 
+" Open Help files virtically on the left
+augroup help
+  autocmd FileType help wincmd L
+augroup END
 
-"
-" base64 utills TO-1DO
-" vnoremap <leader>d64 c<c-r>=system('base64 --decode', @")<cr><esc>
-" vnoremap <leader>c64 c<c-r>=system('base64', @")<cr><esc>
 
+" # Per Language Settings
 " Chef development
 nmap <F7> :set filetype=ruby.eruby.chef<CR>
 
-" Aws development vim-aws functions
-let g:AWSVimValidate = 1
 augroup awsconfig
+  " Aws development vim-aws functions
+  let g:AWSVimValidate = 1
   au BufRead,BufNewFile ~/.aws/credentials set filetype=toml
   au BufRead,BufNewFile ~/.aws/config set filetype=toml
 augroup END
@@ -242,7 +253,9 @@ augroup js
 augroup END
 
 " json dev
-au BufRead,BufNewFile *.json set filetype=json
+augroup json
+  au BufRead,BufNewFile *.json set filetype=json
+augroup END
 
 " Ansible Development
 augroup Ansible
@@ -251,6 +264,15 @@ augroup END
 
 " Terraform development
 augroup terraform
+
+  " (Optional) Enable terraform plan to be include in filter
+  let g:syntastic_terraform_tffilter_plan = 1
+
+  " (Optional) Default: 0, enable(1)/disable(0) plugin's keymapping
+  let g:terraform_completion_keys = 1
+
+  " (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
+  let g:terraform_registry_module_completion = 1
   au BufRead,BufNewFile *.tf-vars set filetype=terraform
   au BufReadCmd,FileWritePre FileType terraform TerraformFmt
 augroup END
@@ -283,7 +305,9 @@ let g:syntastic_auto_loc_list=1
 
 
 " git commit settings
-au FileType gitcommit 1 | startinsert
+augroup git
+  au FileType gitcommit 1 | startinsert
+augroup END
 
 " Groovy settings
 
