@@ -310,6 +310,9 @@ augroup git
 augroup END
 
 " Groovy settings
+augroup groovy
+  autocmd FileType groovy set tabstop=4
+augroup END
 
 "Jenkinsfile auto syntax checking as groovy
 augroup Jenkinsfile
