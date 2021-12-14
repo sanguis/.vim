@@ -43,6 +43,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'sanguis/jenkinsfile-snippets'
   Plug 'sanguis/vim-helm'
   Plug 'thecodesmith/vim-groovy'
+  Plug 'sw-samuraj/vim-gradle'
   Plug 'vim-ruby/vim-ruby'
   Plug 'vim-scripts/groovyindent-unix'
 
@@ -70,6 +71,7 @@ call plug#end()
 colorscheme evening
 let g:airline_powerline_fonts = 1
 let g:airline_theme='murmur'
+let g:airline#extensions#tabline#enabled = 1
 syntax on " syntax highlighing
 set number
 
@@ -257,6 +259,27 @@ augroup json
   au BufRead,BufNewFile *.json set filetype=json
 augroup END
 
+"yaml development
+augroup yaml
+  let g:tagbar_type_yaml = {
+    \ 'ctagstype' : 'yaml',
+    \ 'kinds' : [
+        \ 'a:anchors',
+        \ 's:section',
+        \ 'e:entry'
+    \ ],
+  \ 'sro' : '.',
+    \ 'scope2kind': {
+      \ 'section': 's',
+      \ 'entry': 'e'
+    \ },
+    \ 'kind2scope': {
+      \ 's': 'section',
+      \ 'e': 'entry'
+    \ },
+    \ 'sort' : 0
+    \ }
+augroup END
 " Ansible Development
 augroup Ansible
   au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
