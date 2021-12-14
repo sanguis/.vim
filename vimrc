@@ -43,7 +43,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'sanguis/jenkinsfile-snippets'
   Plug 'sanguis/vim-helm'
   Plug 'thecodesmith/vim-groovy'
-  Plug 'sw-samuraj/vim-gradle'
+  Plug 'https://bitbucket.org/sw-samuraj/vim-gradle/src/develop/'
   Plug 'vim-ruby/vim-ruby'
   Plug 'vim-scripts/groovyindent-unix'
 
