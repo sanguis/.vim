@@ -62,7 +62,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tomtom/tlib_vim'
   Plug 'vim-scripts/l9'
 
-  " Utilites
+  " Utilities
   Plug 'dhruvasagar/vim-open-url'
   Plug 'CrispyDrone/vim-tasks'
 
@@ -73,7 +73,7 @@ colorscheme evening
 let g:airline_powerline_fonts = 1
 let g:airline_theme='murmur'
 let g:airline#extensions#tabline#enabled = 1
-syntax on " syntax highlighing
+syntax on " syntax highlighting
 set number
 
 " GUI Settings
@@ -83,6 +83,7 @@ if has('gui_running')
   se guioptions-=T  "remove toolbar
   se guioptions-=r  "remove right-hand scroll bar
   se guioptions-=L  "remove left-hand scroll bar
+
 
 endif
 
@@ -157,6 +158,7 @@ set iskeyword-=_ "adds underscores as a word break
 set shell=/bin/bash " Ignore my crazy zsh stuff and use bash
 set autochdir " automatically change to the working dir of the file in the buffer"
 set diffopt+=vertical " prefer vertical orientation when using :diffsplit
+set mousemodel=popup
 
 " hit F9 to reload the vimrc
 nmap <F9> :source ~/.vim/vimrc<CR>
@@ -180,9 +182,7 @@ cmap w!! %!sudo tee > /dev/null %
 " search for visualized text
 vnoremap // y/<C-R>"<CR>
 "List buffers and select one by number
-nnoremap <F5> :buffers<CR>:buffer<Space>
 
-"search in duckduckgo via default browser for visualized text.
 vnoremap /d y:silent !open https:\/\/www.duckduckgo.com\/?q=<C-R>"<CR>
 
 
