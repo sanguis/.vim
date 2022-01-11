@@ -65,10 +65,11 @@ call plug#begin('~/.vim/plugged')
   " Utilities
   Plug 'dhruvasagar/vim-open-url'
   Plug 'CrispyDrone/vim-tasks'
+  Plug '/tpope/vim-surround'
 
 call plug#end()
 
-" Appearance
+" # Appearance/UI
 colorscheme evening
 let g:airline_powerline_fonts = 1
 let g:airline_theme='murmur'
@@ -76,24 +77,24 @@ let g:airline#extensions#tabline#enabled = 1
 syntax on " syntax highlighting
 set number
 
-" GUI Settings
+" ## GUI Only Settings
 if has('gui_running')
   set guifont=Roboto\ Mono\ for\ Powerline:h11.
   se guioptions-=m  "remove menu bar
   se guioptions-=T  "remove toolbar
   se guioptions-=r  "remove right-hand scroll bar
   se guioptions-=L  "remove left-hand scroll bar
-
-
 endif
 
-" Spelling settings
-"" Force to use underline for spell check results
+" ## Spelling highlight settings
+"" Force to use underline for spell check
 set spell
 augroup SpellUnderline
   autocmd!
   autocmd ColorScheme *
         \ highlight clear SpellBad
+        \ highlight SpellBad cterm=underline
+        \ highlight SpellBad gui=undercurl
   autocmd ColorScheme *
         \ highlight SpellBad
         \   cterm=Underline
@@ -128,14 +129,13 @@ augroup SpellUnderline
         \   guisp=Red
 augroup END
 
-
 " Search settings
 set smartcase " match 'word' case-insensitive and 'Word' case-sensitive
 set showmatch " shows matching parenthesis, bracket, or brace
 set showcmd " show commands while they're being typed
 set incsearch " searches as you type
 "
-" miscellaneous settings
+" # miscellaneous settings
 " TODO Split these setting up in to better sections where possible
 set visualbell t_vb=
 set nowrap
@@ -147,22 +147,22 @@ set runtimepath+=/usr/local/opt/fzf
 set wildmode=longest,list,full
 set wildmenu
 set wildignore+=**/.git/**,**/__pycache__/**,**/venv/**,**/node_modules/**,**/dist/**,**/build/**,*.o,*.pyc,*.swp
-:filetype indent on
+filetype indent on
 set expandtab
 set tabstop=2
 set shiftwidth=2
 set autoindent
 set smartindent
 set iskeyword-=_ "adds underscores as a word break
-:let g:proj_flags='imstvcg'
+let g:proj_flags='imstvcg'
 set shell=/bin/bash " Ignore my crazy zsh stuff and use bash
 set autochdir " automatically change to the working dir of the file in the buffer"
 set diffopt+=vertical " prefer vertical orientation when using :diffsplit
 set mousemodel=popup
 
-" hit F9 to reload the vimrc
+" ## hit F9 to reload the vimrc
 nmap <F9> :source ~/.vim/vimrc<CR>
-" unmap the arrows
+" ## unmap the arrows
 " Cycle through the history using C-n and C-p (Ctrl+n and Ctrl+p, respectively).
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
@@ -186,7 +186,7 @@ vnoremap // y/<C-R>"<CR>
 vnoremap /d y:silent !open https:\/\/www.duckduckgo.com\/?q=<C-R>"<CR>
 
 
-" #Syntastic
+" # Syntastic
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -208,8 +208,8 @@ let g:ale_sign_warning = '⚠'
 
 " fixer configurations
 let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\}
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \}
 
 let g:acp_enableAtStartup = 0
 
@@ -229,7 +229,7 @@ call deoplete#initialize()
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit='vertical'
 
-" Open Help files virtically on the left
+" Open Help files vertically on the left
 augroup help
   autocmd FileType help wincmd L
 augroup END
@@ -259,23 +259,23 @@ augroup END
 "yaml development
 augroup yaml
   let g:tagbar_type_yaml = {
-    \ 'ctagstype' : 'yaml',
-    \ 'kinds' : [
-        \ 'a:anchors',
-        \ 's:section',
-        \ 'e:entry'
-    \ ],
-  \ 'sro' : '.',
-    \ 'scope2kind': {
-      \ 'section': 's',
-      \ 'entry': 'e'
-    \ },
-    \ 'kind2scope': {
-      \ 's': 'section',
-      \ 'e': 'entry'
-    \ },
-    \ 'sort' : 0
-    \ }
+        \ 'ctagstype' : 'yaml',
+        \ 'kinds' : [
+          \ 'a:anchors',
+          \ 's:section',
+          \ 'e:entry'
+          \ ],
+          \ 'sro' : '.',
+          \ 'scope2kind': {
+            \ 'section': 's',
+            \ 'entry': 'e'
+            \ },
+            \ 'kind2scope': {
+              \ 's': 'section',
+              \ 'e': 'entry'
+              \ },
+              \ 'sort' : 0
+              \ }
 augroup END
 " Ansible Development
 augroup Ansible
@@ -284,38 +284,11 @@ augroup END
 
 " Terraform development
 augroup terraform
-
   au BufRead,BufNewFile *.tf-vars set filetype=terraform
   au BufReadCmd,FileWritePre FileType terraform TerraformFmt
-
 augroup END
-  " (Optional) Enable terraform plan to be include in filter
-  let g:syntastic_terraform_tffilter_plan = 1
 
-  " (Optional) Default: 0, enable(1)/disable(0) plugin's keymapping
-  let g:terraform_completion_keys = 1
-
-  " (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
-  let g:terraform_registry_module_completion = 1
-  let g:tagbar_type_terraform = {
-      \ 'kinds' : [
-          \ 'r:Resources',
-          \ 'd:Datas',
-          \ 'v:Variables',
-          \ 'p:Providers',
-          \ 'o:Outputs',
-          \ 'm:Modules',
-          \ 'f:TFVars',
-      \ ],
-  \ }
-
-" shell editing
-let g:tagbar_type_sh = {
-      \' kinds': [
-    \ 'f:functions',
-    \ 'v:variables'
-        \]
-      \}
+" zsh stuff
 augroup zsh
   autocmd!
   autocmd BufRead,BufNewFile .zsh set filetype=sh.zsh
@@ -341,11 +314,6 @@ augroup git
   au FileType gitcommit 1 | startinsert
 augroup END
 
-" Groovy settings
-augroup groovy
-  autocmd FileType groovy set tabstop=4
-augroup END
-
 "Jenkinsfile auto syntax checking as groovy
 augroup Jenkinsfile
   au BufNewFile,BufRead Jenkinsfile setf groovy
@@ -362,11 +330,11 @@ augroup END
 nnoremap <f3> :call TempSpell(5)<CR>
 
 let  maark_sanitize = {
-  \ 'example': '[maark|Maark]',
-  \ 'monkey_do': '[maestro|cps]',
-  \ 'us-region-23': '[us|eu]-[east|west]-\d\+',
-  \ '12345678909': '\d\{11\}'
-  \}
+      \ 'example': '[maark|Maark]',
+      \ 'monkey_do': '[maestro|cps]',
+      \ 'us-region-23': '[us|eu]-[east|west]-\d\+',
+      \ '12345678909': '\d\{11\}'
+      \}
 function! Sanitize(patterns)
   let column_num      = virtcol('.')
   let target_pattern  = '\%' . column_num . 'v.'
