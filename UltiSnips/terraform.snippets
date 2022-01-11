@@ -1,12 +1,35 @@
-snippet output "terrraform puitput block"
+snippet "out?p?u?t" "terrraform output block" rbA
 output "$1" {
 	value       = $2
 	description = "$3"
-}
+}$0
 endsnippet
 
 snippet "(^\$){}?" "Brackets" Ari
 {
 	${1:VISUAL}
 } $0
+endsnippet
+
+snippet mod "Call a module" i
+module "${1:name}" {
+	source = "${2:source}"
+
+	$3
+}$0
+endsnippet
+
+snippet modv "Call a module with version" i
+module "${1:name}" {
+	source  = "${2:source}"
+	version = "${3:version}"
+
+	$4
+}$0
+endsnippet
+
+snippet "da?t?a" "data block" ir
+data "${1:source}" "${2:name}" {
+	$3
+}$0
 endsnippet

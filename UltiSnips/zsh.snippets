@@ -1,128 +1,139 @@
-extends shell
+extends sh
 
 snippet bang_zsh "#!/bin/zsh"
 #!/bin/zsh
 endsnippet
 
-snippet echd "debug statement"
-[[ ${DEBUG} ]] && echo -e "\\033[34;1m[DEBUG]\\033[0m ${1:statement}"
+snippet echd "debug statement" i
+[[ \$DEBUG ]] && echo -e "\\033[34;1m[DEBUG]\\033[0m ${1:statement}"$0
 endsnippet
 
-snippet echi "info statement" w
-echo -e "\\033[32;1m[INFO]\\033[0m ${1:statement}"
+snippet echi "info statement" i
+echo -e "\\033[32;1m[INFO]\\033[0m ${1:statement}"$0
 endsnippet
 
-snippet eche "echo error"
+snippet eche "echo error" i
 echo -e "\\033[31;1m[ERROR]\\033[0m ${1:statement}"
 endsnippet
 
-snippet DEBUG  "[[ \$DEBUG && action ]]" b
-[[ $DEBUG ]] && ${1}
+snippet debug  "[[ $DEBUG ]] && action" i
+[[ \$DEBUG ]] && ${1:action}
 endsnippet
 
-snippet "terinary" "zsh terinary return" i
-[[ ${1:condtion} ]] || ${2:else} && ${3:return}
+snippet terinary "zsh terinary" i
+[[ ${1:condtion} ]] && ${2:return} || ${3:else}$0
 endsnippet
 
+snippet  "# @des" "shdoc_ifunction" iA
+# @description ${1}
+#
+#  @example
+#     ${2:example_of_command}
+#
+#  @arg \$1 ${3:What is this argument?}
+#
+#  @exitcode 0 ${4:If successful.}
+#  @exitcode 1 ${5:If an empty string passed.)}
+endsnippet
 
-snippet [[-a "true if file exists." iw
-[[ ${!} -a ${1:file} ]]
+snippet "(\[\[)? -a? (\[\])?" "true if file exists." ir
+[[ ${2:!} -a ${1:file} ]]$0
 endsnippet
 
 snippet [[-b "true if file exists and is a block special file." i
-[[ ${!} -b ${1:file} ]]
+[[ ${2:!} -b ${1:file} ]]$0
 endsnippet
 
 snippet [[-c "true if file exists and is a character special file." i
-[[ ${!} -c ${1:file} ]]
+[[ ${2:!} -c ${1:file} ]]$0
 endsnippet
 
-snippet [[-d "true if file exists and is a directory." i
-[[ ${!} -d ${1:file} ]]
+snippet "([[ )?-d " "true if file exists and is a directory." i
+[[ ${2:!} -d ${1:file} ]]$0
 endsnippet
 
 snippet [[-e "true if file exists." i
-[[ ${!} -e ${1:file} ]]
+[[ ${2:!} -e ${1:file} ]]$0
 endsnippet
 
 snippet [[-f "true if file exists and is a regular file." i
-[[ ${!} -f ${1:file} ]]
+[[ ${2:!} -f ${1:file} ]]$0
 endsnippet
 
 snippet [[-g "true if file exists and has its setgid bit set." i
-[[ ${!} -g ${1:file} ]]
+[[ ${2:!} -g ${1:file} ]]$0
 endsnippet
 
 snippet [[-h "true if file exists and is a symbolic link." i
-[[ ${!} -h ${1:file} ]]
+[[ ${2:!} -h ${1:file} ]]$0
 endsnippet
 
 snippet [[-k "true if file exists and has its sticky bit set." i
-[[ ${!} -k ${1:file} ]]
+[[ ${2:!} -k ${1:file} ]]$0
 endsnippet
 
 snippet [[-n "true if length of string is non-zero." i
-[[ ${!} -n ${1:string} ]]
+[[ ${2:!} -n ${1:string} ]]$0
 endsnippet
 
 snippet [[-o "true if option named option is on. option may be a single character, in which case it is a single letter option name. (See Specifying Options.)" i
-[[ ${!} -o ${1:option} ]]
+[[ ${2:!} -o ${1:option} ]]$0
 endsnippet
 
 snippet [[-p "true if file exists and is a FIFO special file (named pipe)." i
-[[ ${!} -p ${1:file} ]]
+[[ ${2:!} -p ${1:file} ]]$0
 endsnippet
 
 snippet [[-r "true if file exists and is readable by current process." i
-[[ ${!} -r ${1:file} ]]
+[[ ${2:!} -r ${1:file} ]]$0
 endsnippet
 
 snippet [[-s "true if file exists and has size greater than zero." i
-[[ ${!} -s ${1:file} ]]
+[[ ${2:!} -s ${1:file} ]]$0
 endsnippet
 
 snippet [[-t "true if file descriptor number fd is open and associated with a terminal device. (note: fd is not optional)" i
-[[ ${!} -t ${1:fd} ]]
+[[ ${2:!} -t ${1:fd} ]]$0
 endsnippet
 
 snippet [[-u "true if file exists and has its setuid bit set." i
-[[ ${!} -u ${1:file} ]]
+[[ ${2:!} -u ${1:file} ]]$0
 endsnippet
 
 snippet [[-v "true if shell variable varname is set." i
-[[ ${!} -v ${1:varname} ]]
+[[ ${2:!} -v ${1:varname} ]]$0
 endsnippet
 
 snippet [[-w "true if file exists and is writable by current process." i
-[[ ${!} -w ${1:file} ]]
+[[ ${2:!} -w ${1:file} ]]$0
 endsnippet
 
-snippet [[-x "true if file exists and is executable by current process. If file exists and is a directory, then the current process has permission to search in the directory." i
-[[ ${!} -x ${1:file} ]]
+snippet "\[\[\s?(! -|-?)(\]\])?" "-x. True if file exists and is executable by current process. If file exists and is a directory, then the current process has permission to search in the directory." r
+[[ ${2:!} -x ${1:file} ]]$0
 endsnippet
 
 snippet [[-z "true if length of string is zero." i
-[[ ${!} -z ${1:string} ]]
+[[ ${2:!} -z ${1:string} ]]$0
 endsnippet
 
 snippet [[-L "true if file exists and is a symbolic link." i
-[[ ${!} -L ${1:file} ]]
+[[ ${2:!} -L ${1:file} ]]$0
 endsnippet
 
 snippet [[-O "true if file exists and is owned by the effective user ID of this process." i
-[[ ${!} -O ${1:file} ]]
+[[ ${2:!} -O ${1:file} ]]$0
 endsnippet
 
 snippet [[-G "true if file exists and its group matches the effective group ID of this process." i
-[[ ${!} -G ${1:file} ]]
+[[ ${2:!} -G ${1:file} ]]$0
 endsnippet
 
 snippet [[-S "true if file exists and is a socket." i
-[[ ${!} -S ${1:file} ]]
+[[ ${2:!} -S ${1:file} ]]$0
 endsnippet
 
 snippet [[-N "true if file exists and its access time is not newer than its modification time." i
-[[ ${!} -N ${1:file} ]]
+[[ ${2:!} -N ${1:file} ]]$0
 endsnippet
 
 #file1 -nt file2
