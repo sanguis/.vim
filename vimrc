@@ -56,6 +56,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/FuzzyFinder'
+  Plug 'terryma/vim-multiple-cursors'
+  Plug 'frazrepo/vim-rainbow'
 
   " Unsorted plugins
   Plug 'MarcWeber/vim-addon-mw-utils'
@@ -65,7 +67,7 @@ call plug#begin('~/.vim/plugged')
   " Utilities
   Plug 'dhruvasagar/vim-open-url'
   Plug 'CrispyDrone/vim-tasks'
-  Plug '/tpope/vim-surround'
+  Plug 'tpope/vim-surround'
 
 call plug#end()
 
@@ -233,7 +235,6 @@ let g:UltiSnipsEditSplit='vertical'
 augroup help
   autocmd FileType help wincmd L
 augroup END
-
 
 " # Per Language Settings
 " Chef development
