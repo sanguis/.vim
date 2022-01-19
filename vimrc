@@ -78,6 +78,7 @@ let g:airline_theme='murmur'
 let g:airline#extensions#tabline#enabled = 1
 syntax on " syntax highlighting
 set number
+let g:rainbow_active = 1
 
 " ## GUI Only Settings
 if has('gui_running')
