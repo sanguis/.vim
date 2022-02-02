@@ -340,7 +340,7 @@ let  maark_sanitize = {
 function! Sanitize(patterns)
   let column_num      = virtcol('.')
   let target_pattern  = '\%' . column_num . 'v.'
-  " create a dictionalty of replacments key being repalcemnt with list of
+  " create a dictionary of replacements key being replacement with list of
   " patterns to replace
   for replacement in keys(a:patterns)
     substitute(target_pattern, patterns(replacement), replacment, 'g')
