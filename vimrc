@@ -14,9 +14,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'w0rp/ale'
 
   " Completion and snippets
-  Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': './install.sh'}
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'Raimondi/delimitMate'
+  "Plug 'autozimu/LanguageClient
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'juliosueiras/vim-terraform-completion'
