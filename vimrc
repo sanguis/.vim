@@ -23,6 +23,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'thomasfaingnaert/vim-lsp-snippets'
   Plug 'thomasfaingnaert/vim-lsp-ultisnips'
   Plug 'wellle/tmux-complete.vim'
+  Plug 'Shougo/deoplete.nvim'
 
   " Language Syntax help
   Plug 'avakhov/vim-yaml'
@@ -224,7 +225,8 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#omni_patterns = {}
 let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w}]'
-call deoplete#custom#source('ultisnips','LanguageClient', 'ale', 'matchers', ['matcher_fuzzy'])
+"call deoplete#custom#source('ultisnips','LanguageClient', 'ale', 'matchers', ['matcher_fuzzy'])
+call deoplete#custom#source('ultisnips', 'ale', 'matchers', ['matcher_fuzzy'])
 call deoplete#initialize()
 
 " If you want :UltiSnipsEdit to split your window.
@@ -344,3 +346,23 @@ function! Sanitize(patterns)
     substitute(target_pattern, patterns(replacement), replacment, 'g')
   endfor
 endfunction
+
+function! HighlightRepeats() range
+  let lineCounts = {}
+  let lineNum = a:firstline
+  while lineNum <= a:lastline
+    let lineText = getline(lineNum)
+    if lineText !=# ''
+      let lineCounts[lineText] = (has_key(lineCounts, lineText) ? lineCounts[lineText] : 0) + 1
+    endif
+    let lineNum = lineNum + 1
+  endwhile
+  exe 'syn clear Repeat'
+  for lineText in keys(lineCounts)
+    if lineCounts[lineText] >= 2
+      exe 'syn match Repeat "^' . escape(lineText, '".\^$*[]') . '$"'
+    endif
+  endfor
+endfunction
+
+command! -range=% HighlightRepeats <line1>,<line2>call HighlightRepeats()
