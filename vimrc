@@ -25,7 +25,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'wellle/tmux-complete.vim'
   Plug 'Shougo/deoplete.nvim'
 
-  " Language Syntax help
+  " Code Language Syntax help
   Plug 'avakhov/vim-yaml'
   Plug 'cespare/vim-toml'
   Plug 'chr4/nginx.vim'
@@ -67,6 +67,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'dhruvasagar/vim-open-url'
   Plug 'CrispyDrone/vim-tasks'
   Plug 'tpope/vim-surround'
+  "
+  " Work Utilities
+  Plug 'sanguis/vim_generify'
+
 
 call plug#end()
 
