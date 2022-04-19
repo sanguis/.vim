@@ -51,3 +51,44 @@ snippet "(- )?repo:?" "pre-commit repo" irs
 		hooks:
 		- id: ${3:id}
 endsnippet
+
+snippet tf-precommit "terraform precommit" i
+
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.0.1  # Use the ref you want to point at
+  hooks:
+    - id: trailing-whitespace
+      args: [--markdown-linebreak-ext=md]
+    - id: check-added-large-files
+    - id: check-json
+    - id: check-merge-conflict
+    - id: check-yaml
+    - id: detect-private-key
+    - id: end-of-file-fixer
+
+- repo: https://github.com/gruntwork-io/pre-commit
+  rev: v0.1.17 # Get the latest from: https://github.com/gruntwork-io/pre-commit/releases
+  hooks:
+    - id: tflint
+    - id: terraform-validate
+    - id: terraform-fmt
+    - id: terragrunt-hclfmt:
+-   repo: https://github.com/antonbabenko/pre-commit-terraform.git
+    rev: v1.62.0
+    hooks:
+    - id: terraform_docs
+      args:
+        - markdown
+        - --hook-config=--add-to-existing-file=true     # Boolean. true or false
+        - --hook-config=--create-file-if-not-exist=true
+        #- id: terragrunt_fmt
+  hooks:
+  - id: doctoc
+    args: ['--bitbucket']
+- repo: git://github.com/smian/pre-commit-makefile
+  sha: master
+  hooks:
+    - id: makefile-doc
+
+endsnippet

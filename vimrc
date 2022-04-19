@@ -1,5 +1,6 @@
 " Requires pip module pynvim to be installed.
-"
+
+" SECTION: Call plugins with vim/plugged {{{1
 call plug#begin('~/.vim/plugged')
   " NeoVim Back Porters
   Plug 'roxma/nvim-yarp'
@@ -69,12 +70,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   "
   " Work Utilities
-  Plug 'sanguis/vim_generify'
+  Plug 'sanguis/vim-generify'
 
 
 call plug#end()
 
-" # Appearance/UI
+" SECTION: # Appearance/UI {{{1
 colorscheme evening
 let g:airline_powerline_fonts = 1
 let g:airline_theme='murmur'
@@ -335,21 +336,12 @@ augroup END
 
 nnoremap <f3> :call TempSpell(5)<CR>
 
-let  maark_sanitize = {
+let  maark_generify = {
       \ 'example': '[maark|Maark]',
       \ 'monkey_do': '[maestro|cps]',
       \ 'us-region-23': '[us|eu]-[east|west]-\d\+',
       \ '12345678909': '\d\{11\}'
       \}
-function! Sanitize(patterns)
-  let column_num      = virtcol('.')
-  let target_pattern  = '\%' . column_num . 'v.'
-  " create a dictionary of replacements key being replacement with list of
-  " patterns to replace
-  for replacement in keys(a:patterns)
-    substitute(target_pattern, patterns(replacement), replacment, 'g')
-  endfor
-endfunction
 
 function! HighlightRepeats() range
   let lineCounts = {}
