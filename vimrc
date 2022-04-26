@@ -19,7 +19,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'juliosueiras/vim-terraform-completion'
-  Plug 'm-kat/aws-vim'
   Plug 'reconquest/vim-pythonx'
   Plug 'thomasfaingnaert/vim-lsp-snippets'
   Plug 'thomasfaingnaert/vim-lsp-ultisnips'
@@ -51,13 +50,13 @@ call plug#begin('~/.vim/plugged')
   " SECTION: UX help {{{2
   Plug 'Yggdroot/indentLine'
   Plug 'bling/vim-airline'
+  Plug 'frazrepo/vim-rainbow'
   Plug 'junegunn/fzf.vim'
   Plug 'majutsushi/tagbar'
   Plug 'scrooloose/nerdtree'
+  Plug 'terryma/vim-multiple-cursors'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/FuzzyFinder'
-  Plug 'terryma/vim-multiple-cursors'
-  Plug 'frazrepo/vim-rainbow'
 
   " SECTION: Unsorted plugins {{{2
   Plug 'MarcWeber/vim-addon-mw-utils'
