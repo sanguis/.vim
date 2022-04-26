@@ -2,19 +2,19 @@
 
 " SECTION: Call plugins with vim/plugged {{{1
 call plug#begin('~/.vim/plugged')
-  " NeoVim Back Porters
+  " SECTION: NeoVim Back Porters {{{2
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 
-  " Source control Utilities
+  " SECTION: Source control Utilities {{{2
   Plug 'mhinz/vim-signify'
   Plug 'tpope/vim-fugitive'
 
-  " Syntax and Linting
+  " SECTION: Syntax and Linting {{{2
   Plug 'vim-syntastic/syntastic'
   Plug 'w0rp/ale'
 
-  " Completion and snippets
+  " SECTION: Completion and snippets {{{2
   "Plug 'autozimu/LanguageClient
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
@@ -26,7 +26,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'wellle/tmux-complete.vim'
   Plug 'Shougo/deoplete.nvim'
 
-  " Code Language Syntax help
+  " SECTION: Code Language Syntax help {{{2
   Plug 'avakhov/vim-yaml'
   Plug 'cespare/vim-toml'
   Plug 'chr4/nginx.vim'
@@ -48,7 +48,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-ruby/vim-ruby'
   Plug 'vim-scripts/groovyindent-unix'
 
-  " UX help
+  " SECTION: UX help {{{2
   Plug 'Yggdroot/indentLine'
   Plug 'bling/vim-airline'
   Plug 'junegunn/fzf.vim'
@@ -59,18 +59,20 @@ call plug#begin('~/.vim/plugged')
   Plug 'terryma/vim-multiple-cursors'
   Plug 'frazrepo/vim-rainbow'
 
-  " Unsorted plugins
+  " SECTION: Unsorted plugins {{{2
   Plug 'MarcWeber/vim-addon-mw-utils'
   Plug 'tomtom/tlib_vim'
   Plug 'vim-scripts/l9'
 
-  " Utilities
+  " SECTION: Utilities {{{2
   Plug 'dhruvasagar/vim-open-url'
   Plug 'CrispyDrone/vim-tasks'
   Plug 'tpope/vim-surround'
   "
-  " Work Utilities
+  " SECTION: Work Utilities {{{2
   Plug 'sanguis/vim-generify'
+  " SECTION: Vim Applications. {{{2 {{{2
+  Plug 'paulkass/jira-vim', { 'do': 'pip install -r requirements.txt' }
 
 
 call plug#end()
@@ -149,7 +151,7 @@ set nowrap
 filetype plugin on " plugins are enabled
 set noswapfile"
 set ruler
-set path=$PWD/**        " enable fuzzy finding in the vim command line
+set path=$PWD/**        " SECTION: enable fuzzy finding in the vim command line {{{2
 set runtimepath+=/usr/local/opt/fzf
 set wildmode=longest,list,full
 set wildmenu
@@ -240,14 +242,14 @@ let g:UltiSnipsEditSplit='vertical'
 " Open Help files vertically on the left
 augroup help
   autocmd FileType help wincmd L
-augroup END
+augroup END:
 
 " # Per Language Settings
 " Chef development
 nmap <F7> :set filetype=ruby.eruby.chef<CR>
 
 augroup awsconfig
-  " Aws development vim-aws functions
+  " SECTION: Aws development vim-aws functions {{{2
   let g:AWSVimValidate = 1
   au BufRead,BufNewFile ~/.aws/credentials set filetype=toml
   au BufRead,BufNewFile ~/.aws/config set filetype=toml
@@ -303,7 +305,7 @@ augroup END
 
 " Drupal Development.
 if has('autocmd')
-  " Drupal *.module and *.install files.
+  " SECTION: Drupal *.module and *.install files. {{{2
   augroup module
     autocmd BufRead,BufNewFile *.module set filetype=php
     autocmd BufRead,BufNewFile *.install set filetype=php
