@@ -3,7 +3,7 @@
 " SECTION: Call plugins with vim/plugged {{{1
 call plug#begin('~/.vim/plugged')
   " SECTION: NeoVim Back Porters {{{2
-  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/nvim-yarp', { 'do': 'pip install -r requirements.txt' }
   Plug 'roxma/vim-hug-neovim-rpc'
 
   " SECTION: Source control Utilities {{{2
@@ -327,15 +327,29 @@ augroup Jenkinsfile
   au BufNewFile,BufRead Jenkinsfile setf groovy
 augroup END
 
-" Custom functions
-:function! TempSpell(time)
-:  echo 'Spelling will be on for' a:time 'seconds'
-:  set spell
-:  sleep
-:  set nospell
-:endfunction
+if !empty($jiraVimDomainName)
+  let g:jiraVimDomainName = $jiraVimDomainName
+  let g:jiraVimEmail = $jiraVimEmail
+  let g:jiraVimToken = $jiraVimToken
 
-nnoremap <f3> :call TempSpell(5)<CR>
+endif
+
+" SECTION: Custom functions {{{(1
+
+" SECTION: TURN off Spelling in the background {{{(2
+function! TempNoSpell(time = "60")
+  echo 'Spelling will be off for' a:time 'seconds'
+  set nospell
+  !sleep a:time
+  set spell
+endfunction
+
+nnoremap <f3> :call TempNoSpell(120)<CR>
+
+" SECTION: open scratchpad {{{(2
+function! Scratch(type = "txt")
+  vs /tmp/vim-scratch.a.type
+endfunction
 
 let  maark_generify = {
       \ 'example': '[maark|Maark]',
