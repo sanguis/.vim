@@ -148,7 +148,9 @@ set incsearch " searches as you type
 set visualbell t_vb=
 set nowrap
 filetype plugin on " plugins are enabled
-set noswapfile"
+set backupdir=.backup/,~/.backup/,/tmp//
+set directory=.swp/,~/.swp/,/tmp//
+set undodir=.undo/,~/.undo/,/tmp//
 set ruler
 set path=$PWD/**        " SECTION: enable fuzzy finding in the vim command line {{{2
 set runtimepath+=/usr/local/opt/fzf
