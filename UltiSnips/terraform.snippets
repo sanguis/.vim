@@ -1,6 +1,6 @@
 snippet "out?p?u?t" "terrraform output block" rbA
 output "$1" {
-	value       = $2
+	value       = try($2, "")
 	description = "$3"
 }$0
 endsnippet

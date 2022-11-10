@@ -1,0 +1,7 @@
+snippet "^\[(\S+)\]?" "AWS Config Assume Entry" br
+[${1:`!p snip.rv = match.group(1)`}]
+role_arn = arn:aws:iam::${2:AccountNumber}:role/${3:$1}
+source_profile = ${4:default}
+role_session_name = JoshAssumes-$3
+$0
+endsnippet
