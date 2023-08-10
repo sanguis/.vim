@@ -6,6 +6,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'roxma/nvim-yarp', { 'do': 'pip install -r requirements.txt' }
   Plug 'roxma/vim-hug-neovim-rpc'
 
+  " SECTION: AI_helpers {{{2
+  Plug 'github/copilot.vim'
+
   " SECTION: Source control Utilities {{{2
   Plug 'mhinz/vim-signify'
   Plug 'tpope/vim-fugitive'
