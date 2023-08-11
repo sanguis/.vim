@@ -1,3 +1,23 @@
 snippet jira "Send to Jira" i
 jiraSendBuildInfo site: 'maark.atlassian.net'
 endsnippet
+
+snippet stage "stage block" i
+stage("${1:Description}") {
+    steps {
+		${2:Actions}
+	}
+}
+endsnippet
+
+snippet script "script block" iA
+script{
+    ${1}
+}
+endsnippet
+
+snippet when "when block" iA
+when{
+    ${1}
+}
+endsnippet

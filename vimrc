@@ -198,6 +198,7 @@ vnoremap // y/<C-R>"<CR>
 
 vnoremap /d y:silent !open https:\/\/www.duckduckgo.com\/?q=<C-R>"<CR>
 
+"
 
 " # Syntastic
 
