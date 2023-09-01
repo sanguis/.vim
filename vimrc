@@ -154,18 +154,18 @@ filetype plugin on " plugins are enabled
 set backupdir=.backup/,~/.backup/,/tmp//
 set directory=.swp/,~/.swp/,/tmp//
 set undodir=.undo/,~/.undo/,/tmp//
-set ruler
-set path=$PWD/**        " SECTION: enable fuzzy finding in the vim command line {{{2
+set ruler " show the cursor position all the time
+set path=$PWD/**        " : enable fuzzy finding in the vim command line
 set runtimepath+=/usr/local/opt/fzf
-set wildmode=longest,list,full
-set wildmenu
+set wildmode=longest,list,full " command line completion mode
+set wildmenu " visual command line completion
 set wildignore+=**/.git/**,**/__pycache__/**,**/venv/**,**/node_modules/**,**/dist/**,**/build/**,*.o,*.pyc,*.swp
-filetype indent on
-set expandtab
+filetype indent on " enable filetype-specific indenting
+set expandtab " use spaces instead of tabs
 set tabstop=2
-set shiftwidth=2
+set shiftwidth=2 " number of spaces to use for autoindenting
 set autoindent
-set smartindent
+set smartindent " do smart indenting when starting a new line
 set iskeyword-=_ "adds underscores as a word break
 let g:proj_flags='imstvcg'
 set shell=/bin/bash " Ignore my crazy zsh stuff and use bash
