@@ -1,4 +1,6 @@
 " Requires pip module pynvim to be installed.
+" Tell python to use virtual env.
+let g:python3_host_prog = expand('~/.vimpy/bin/python3')
 
 " SECTION: Call plugins with vim/plugged {{{1
 call plug#begin('~/.vim/plugged')
@@ -74,7 +76,6 @@ call plug#begin('~/.vim/plugged')
   " SECTION: Work Utilities {{{2
   Plug 'sanguis/vim-generify'
   " SECTION: Vim Applications. {{{2 {{{2
-  Plug 'paulkass/jira-vim', { 'do': 'pip install -r requirements.txt' }
 
 
 call plug#end()
