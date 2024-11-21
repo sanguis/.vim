@@ -1,11 +1,9 @@
 " Requires pip module pynvim to be installed.
-" Tell python to use virtual env.
-let g:python3_host_prog = expand('~/.vimpy/bin/python3')
 
 " SECTION: Call plugins with vim/plugged {{{1
 call plug#begin('~/.vim/plugged')
   " SECTION: NeoVim Back Porters {{{2
-  Plug 'roxma/nvim-yarp', { 'do': 'pip install -r requirements.txt' }
+  Plug 'roxma/nvim-yarp', { 'do': 'pip3 install --break-system-packages -r requirements.txt' }
   Plug 'roxma/vim-hug-neovim-rpc'
 
   " SECTION: AI_helpers {{{2
@@ -230,7 +228,7 @@ let g:acp_enableAtStartup = 0
 
 " auto Completion and snippets.
 " (Optional)Remove Info(Preview) window
-set completeopt-=preview
+" set completeopt-=preview
 
 " (Optional)Hide Info(Preview) window after completions
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
