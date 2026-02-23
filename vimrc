@@ -3,8 +3,9 @@
 " SECTION: Call plugins with vim/plugged {{{1
 call plug#begin('~/.vim/plugged')
   " SECTION: NeoVim Back Porters {{{2
-  Plug 'roxma/nvim-yarp', { 'do': 'pip3 install --break-system-packages -r requirements.txt' }
   Plug 'roxma/vim-hug-neovim-rpc'
+  " Remember to rerun this  after updating python via brew
+  Plug 'roxma/nvim-yarp', { 'do': 'pip3 install --break-system-packages -r requirements.txt' }
 
   " SECTION: AI_helpers {{{2
   Plug 'github/copilot.vim'
